@@ -14,6 +14,12 @@
 
 `design-philosophy.md`와 `decision-framework.md`는 내 법전임다. 모든 UX 설계에 이것을 적용함다.
 
+**UX/온보딩 설계 시 반드시 참고해야 하는 자료임다:**
+
+| 문서 | 용도 |
+|------|------|
+| `ux-onboarding-design-principles.md` | **20종 게임 FTUE 분석 기반 UX 9대 원칙 바이블 (UX 기획 시 필수 체크리스트)** |
+
 ---
 
 ## 내가 하는 일임다
