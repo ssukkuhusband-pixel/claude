@@ -74,7 +74,11 @@
 | 17 | Stardew Valley | ConcernedApe | 2018 | $5억(전체) | 200만+(모바일) | F2P 시장에서 성공한 프리미엄 유료 게임 |
 | 18 | Frostpunk: Beyond the Ice | 11 bit studios | 2024 | — | — | 생존 전략 IP의 모바일화 + 감정적 서사 |
 | 19 | Rise of Kingdoms | Lilith Games | 2018 | $15억+ | 수억 | 4X SLG + 실제 역사 문명 IP |
-| 20 | State of Survival | KingsGroup Holdings | 2020 | $10억+ | 수억 | 좀비 서바이벌 + SLG + 협동 동맹 |
+| 20 | State of Survival | KingsGroup Holdings | 2020 | $12억+ | 1.5억 | 좀비 서바이벌 + SLG + 협동 동맹 |
+| 21 | Game of War: Fire Age | Machine Zone | 2013 | $28억+(누적) | — | 셀럽($4,000만 마케팅) + 동맹 SLG 장르 대중화 선구자 |
+| 22 | Evony: The King's Return | Top Games Inc. | 2016 | 연 $3억 | 2억+ | 역사 장군 수집 + 퍼즐 광고 크리에이티브 업계 표준 창시 |
+| 23 | Lords Mobile | IGG | 2016 | $20억+(추정) | 7.4억(가입자) | RPG 영웅 배틀 화면 + 4X SLG 결합 + 8년+ 장수 |
+| 24 | Top War: Battle Game | Camel Games | 2019 | — | 월 120만(2026) | 머지 메커닉 + 4X SLG = 업그레이드 대기시간 없는 즉각 보상 루프 |
 
 ---
 
