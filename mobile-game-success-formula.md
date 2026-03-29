@@ -1,5 +1,5 @@
 # 모바일 게임 시장의 성공 공식
-## 성공 91종 + 실패 105종 종합 분석 (2012~2025) — 총 196종
+## 성공 141종 + 실패 155종 종합 분석 (2009~2025) — 총 296종
 
 > 이 문서는 실제 시장 데이터를 기반으로 한 귀납적 분석임다.
 > "이럴 것 같다"가 아닌, "실제로 이랬다"의 기록임다.
@@ -10,10 +10,11 @@
 
 | 항목 | 내용 |
 |------|------|
-| **분석 기간** | 2012~2025 (약 13년) |
-| **성공 게임** | 91종 (RPG 23 / 전략·SLG 24 / 캐주얼·퍼즐 18 / MOBA·배틀로얄 8 / 한국MMORPG 5 / IP수집RPG 7 / 소셜카지노 4 / 기타 9 - 추가 33종 포함) |
-| **실패 게임** | 105종 (글로벌 25 / 한국·일본·기타 31 / 서구권 라이브서비스 23 / 한국·일본·중국·스포츠IP 26 - 추가 49종 포함) |
-| **총 분석 게임** | **196종** (2차 분석 완료 기준) |
+| **분석 기간** | 2009~2025 (약 16년) |
+| **성공 게임** | 141종 (RPG 23 / 전략·SLG 24 / 캐주얼·퍼즐 18 / MOBA·배틀로얄 8 / 한국MMORPG 5 / IP수집RPG 7 / 소셜카지노 4 / 기타 9 / 일본 IP 가챠·리듬 25 / 서구 캐주얼·미드코어·플랫폼 25) |
+| **실패 게임** | 155종 (글로벌 25 / 한국·일본·기타 31 / 서구권 라이브서비스 23 / 한국·일본·중국·스포츠IP 26 / 일본가챠종료·서구IP실패 25 / 중국MMO글로벌·최근신작부진 25) |
+| **총 분석 게임** | **296종** (3차 분석 완료 기준) |
+| **도출 법칙** | **24개** (1차 10개 + 2차 5개 + 구조 3개 + 3차 6개) |
 | **데이터 출처** | Sensor Tower, Business of Apps, PocketGamer, AppMagic, GameWorldObserver, 각사 공식 발표 등 |
 
 ---
@@ -473,6 +474,78 @@ NieR Reincarnation, Echoes of Mana, Engage Kill, FF Record Keeper (글로벌), K
 
 ---
 
+## 파트 1 추가 2. 성공 게임 3차 분석 (50종)
+
+---
+
+### 1-I. 성공 일본 IP 가챠·리듬게임 25종
+
+| # | 게임명 | 개발사 | 출시 | 누적/연 수익 | 다운로드 | 핵심 유니크 포인트 |
+|---|--------|--------|------|-------------|----------|-------------------|
+| 1 | Uma Musume Pretty Derby | Cygames | 2021 | 누적 ~$2.4B (2023) | ~2,000만(일본) | 실존 경주마 미소녀화 + 육성 시뮬레이션 + 리듬 배틀 3중 융합 |
+| 2 | Granblue Fantasy | Cygames | 2014 | 누적 ~$2B+ | ~4,000만 등록 | 일러스트 퀄리티 + 방대한 세계관으로 10년 장기 운영 |
+| 3 | Dragon Ball Z: Dokkan Battle | Bandai Namco/Akatsuki | 2015 | 누적 ~$2B+ | ~3억(글로벌) | 세계 최강 IP + 단순 퍼즐 전투로 캐주얼-코어 동시 공략 |
+| 4 | Hearthstone | Blizzard | 2014 | 누적 ~$2B+(PC+모바일) | ~1억 4천만 계정 | PC TCG를 디지털화 + e스포츠 생태계로 PC-모바일 동시 장악 |
+| 5 | Brawl Stars | Supercell | 2017 | 누적 ~$2B+ / 2023년 연 ~$600M | ~5억(글로벌) | 3분 배틀 + 다양한 모드 + e스포츠로 Z세대 글로벌 석권 |
+| 6 | One Piece Treasure Cruise | Bandai Namco/Gumi | 2014 | 누적 ~$1B+ | ~1억 5천만 | 원피스 IP + 탭 타이밍 배틀로 진입장벽 최소화 |
+| 7 | Yu-Gi-Oh! Duel Links | Konami | 2016 | 누적 ~$1B+ | ~1억 8천만 | 스피드 듀얼 룰로 원작 TCG 모바일 최적화 + e스포츠 연동 |
+| 8 | Final Fantasy Brave Exvius | Square Enix/Gumi | 2015 | 누적 ~$1B+ | ~5,000만 | FF 역대 캐릭터 콜라보 + JRPG 전투로 해외 FF 팬 흡수 |
+| 9 | Star Wars: Galaxy of Heroes | EA Capital Games | 2015 | 누적 ~$1B+ / 연 ~$200M | ~1억+ | 스타워즈 전 캐릭터 수집 + 길드전으로 서구 코어 가챠 시장 개척 |
+| 10 | Marvel Strike Force | Scopely/FoxNext | 2018 | 누적 ~$1B+ | ~5,000만 | 마블 전 캐릭터 수집 + 턴제 전략 + MCU 열풍 동조 |
+| 11 | Hay Day | Supercell | 2012 | 누적 ~$14억 / 2024년 연 $133M | ~3억 5천만 | 힐링 농장 경영 원조 — 모바일 소셜 SLG 원형 정립 |
+| 12 | Mobile Legends: Bang Bang | Moonton | 2016 | 누적 ~$1B+ / 연 ~$200M+ | ~1억+ | PC MOBA를 모바일 10분으로 압축 + 동남아 e스포츠 성지화 |
+| 13 | Love Live! School Idol Festival | KLab | 2013 | 누적 ~$900M+ | ~7,000만(시리즈) | 아이돌 육성 + 리듬게임 선구자 + 러브라이브 성지순례 문화 창출 |
+| 14 | BanG Dream! Girls Band Party | Craft Egg/Bushiroad | 2017 | 누적 ~$700M+ | ~3,000만 | 리얼 밴드 활동 연동 + 리듬게임 + 미디어믹스 일체화 |
+| 15 | Dragon Quest Walk | Square Enix/Colopl | 2019 | 누적 ~$600M+(일본) | ~1,500만(일본) | Pokemon GO 형식에 DQ 왕도 RPG 결합 + 일본 내수 최강 위치기반 |
+| 16 | Touken Ranbu ONLINE | DMM/Nitroplus | 2015 | 누적 ~$500M+(추정) | ~600만(모바일) | 역사 명도를 미남 의인화 + 2.5차원 미디어믹스 폭발 |
+| 17 | Ensemble Stars!! Music | Happy Elements | 2015/2020 | 누적 ~$500M+(추정) | ~1,500만(Music) | 남성 아이돌 육성 + 스토리 중심 + 리듬게임 분리 2단 구성 |
+| 18 | Stumble Guys | Kitka/Scopely | 2021 | 누적 ~$200M+(추정) | ~6억(글로벌) | Fall Guys 모바일 포지셔닝 + 무료+배틀패스로 캐주얼 대중 흡수 |
+| 19 | Dragon Quest Tact | Square Enix/Aiming | 2020 | 누적 ~$200M(추정) | ~1,000만 | DQ 몬스터 수집·육성 전략 SLG + 시리즈 팬 향 타겟 |
+| 20 | Pokémon Masters EX | DeNA/TPC | 2019 | 누적 ~$300M+(추정) | ~1억 5천만 | 역대 포켓몬 트레이너 전원 집결 + 3v3 실시간 배틀 |
+| 21 | Octopath Traveler: CotC | Square Enix | 2020 | 누적 ~$150M+(추정) | ~700만 | HD-2D 비주얼 혁신 + 오리지널 시나리오로 콘솔급 스토리 |
+| 22 | Teamfight Tactics Mobile | Riot Games | 2020 | 누적 ~$150M+(모바일) | ~1억(모바일) | 오토배틀러를 PC-모바일 완전 동기화 + LoL 팬베이스 흡수 |
+| 23 | Pokémon Sleep | TPC/SELECT Button | 2023 | 누적 ~$100M+(6개월) | ~3,000만(2023년 말) | "수면을 게임화"라는 전례 없는 메커닉 + 포켓몬 IP |
+| 24 | Angry Birds | Rovio | 2009 | 프랜차이즈 ~$600M+ | ~50억(시리즈 전체) | 물리 기반 퍼즐로 스마트폰 초기 시장 정의 + 캐주얼 게임 원형 |
+| 25 | Alto's Odyssey | Noodlecake/Snowman | 2018 | 누적 ~$10M(소규모 프리미엄) | ~2,000만(시리즈) | 미니멀 아트 + 명상적 게임플레이로 "웰니스 게임" 장르 개척 |
+
+> **1-I 핵심 인사이트**: 일본 IP 가챠의 $1B 클럽(8종)은 공통적으로 ①강력한 원작 IP ②10년+ 콜라보 이벤트 지속력 ③코어 팬덤의 과금 내성을 갖춤. 반면 Granblue(브라우저), Love Live(리듬), TFT(PC동기화) 등 장르 혁신이 있는 타이틀이 IP만 의존한 타이틀보다 더 오래 생존함.
+
+---
+
+### 1-J. 성공 서구 캐주얼·미드코어·플랫폼 25종
+
+| # | 게임명 | 개발사 | 출시 | 누적/연 수익 | 다운로드 | 핵심 유니크 포인트 |
+|---|--------|--------|------|-------------|----------|-------------------|
+| 1 | Roblox | Roblox Corp | 2016(모바일) | 연 $48.8억(2025, 전 플랫폼) | 모바일 ~3억 8천만 | UGC 기반 게임 플랫폼 — 유저가 게임 만들고 판매하는 Z세대 소셜 허브 |
+| 2 | Duolingo | Duolingo Inc. | 2012 | 연 $7억 4,800만(2024, +40.8%) | 누적 ~9억 6천만 | 언어학습 게임화 선구자 + 올빼미 협박 밈이 된 리텐션 루프 |
+| 3 | Minecraft (모바일) | Mojang/Microsoft | 2011 | 연 ~$100M+(모바일) | 전 플랫폼 MAU 2억 1천만 | $6.99 유료 앱으로도 연 $100M+ — IP+교육+크리에이티브 포지셔닝 |
+| 4 | Boom Beach | Supercell | 2014 | 누적 ~$820M / 2024년 연 $16.2M | 누적 ~1억 4천만 | Supercell 타이틀 중 최소 규모이나 10년 지속 — 전략·협동 코어 유저 락인 |
+| 5 | Stardew Valley | ConcernedApe | 2018(모바일) | 전 플랫폼 누적 ~$5억(5,000만 카피+) | 모바일 수백만 | 광고·IAP·DLC 없는 $4.99 — 1인 개발·노과금으로 인디의 성배 |
+| 6 | Among Us | Innersloth | 2018 | 누적 ~$1억 500만 | 누적 ~5억 5천만 | 2018 출시 후 묻혔다가 2020 팬데믹·스트리머로 폭발 — 바이럴 부활 교과서 |
+| 7 | Fallout Shelter | Bethesda | 2015 | 누적 $100M+(2019 돌파) | ~1억 7천만 | E3 2015 당일 기습 출시 첫 2주 $5.1M — 콘솔 IP 모바일 F2P 전환 선례 |
+| 8 | Magic: The Gathering Arena (모바일) | Wizards/Hasbro | 2021(모바일) | MTG 디지털 연 ~$4억(2023) | 모바일 ~2,000만 | 33년 물리 TCG 모바일 이식 — 플레이타임 40%가 모바일 전환 |
+| 9 | Beatstar | Space Ape | 2021 | 누적 $125M+(2023) | 누적 ~1억 | 실제 음원 기반 리듬게임 + 음원사에 $16M 배분한 게임-음악 공생 |
+| 10 | Sky: Children of the Light | thatgamecompany | 2019 | 월 $150만+(iOS+Android) | 누적 ~1억 6천만 | 수익의 40~50%가 "선물 기능" — 경쟁·과금 압박 없는 감성 소셜 공동체 |
+| 11 | Geometry Dash | RobTop Games | 2013 | 누적 ~$21M+(2018) / 2024년 부활 | 누적 ~7억+(Lite포함) | 1인 개발 $1.99 유료 + UGC 레벨 에디터 + 2.2 업데이트로 2024년 Steam 8.8만 동접 부활 |
+| 12 | Monument Valley | ustwo games | 2014 | 누적 $25M+ | ~2,600만(유료 ~500만) | $3.99 프리미엄 — BAFTA+애플 AotY로 "게임이 예술"임을 증명 |
+| 13 | Wordle (NYT) | New York Times | 2022(앱통합) | NYT Games 앱 월 $400만+ | NYT Games 월 100만+ DL | 하루 1단어 희소성 설계 + SNS 공유 바이럴 + NYT 구독 전환 퍼널 |
+| 14 | Pikmin Bloom | Niantic | 2021 | 누적 $100M+(2025) / 2024년 연 $33.4M | 피크 460만 DL/월 | Pikmin 4 닌텐도 출시가 모바일 2배 견인 — 콘솔 신작이 모바일 되살린 역주행 |
+| 15 | Temple Run | Imangi Studios | 2011 | 현재 연 수백만(추정) | 프랜차이즈 누적 25억+ | F2P 전환 후 수익 4배 — 엔드리스 러너 장르 창시, 320억 게임플레이 기록 |
+| 16 | Cut the Rope | ZeptoLab | 2010 | 미공개 | 프랜차이즈 누적 10억+ | 2010년 물리 퍼즐 시대 개막 — Om Nom IP화로 단순 퍼즐을 프랜차이즈로 성장 |
+| 17 | Alto's Adventure | Snowman | 2015 | 누적 ~$3.5M+ | iOS+Android 합산 3,000만+ | $4.99 프리미엄 → Android 무료 전환 불가피 — 인디 프리미엄의 한계와 가능성 동시 시사 |
+| 18 | Words With Friends | Zynga | 2009 | 월 ~$110만(iOS+Android) | 누적 2억+(2017) | 스크래블 소셜화 — Facebook 비동기 멀티플레이로 미국 성인 소셜게임 시대 개막 |
+| 19 | Legends of Runeterra | Riot Games | 2020 | 누적 ~$2,400만(2022) | 누적 ~1,300만 | 2024년 PvP 종료 → PvE 전환 — CCG 후발 진입 수익 한계 + 장르 피벗 사례 |
+| 20 | Mini Metro | Dinosaur Polo Club | 2015(모바일) | 소규모(미공개) | Android 330만+ | 실제 지하철 노선도 미학 게임화 — 디자인 어워드 인디 전형 |
+| 21 | Florence | Mountains Studio | 2018 | 누적 ~$150만(추정) | 미공개 | BAFTA 2019·TGA 2018 수상 — "30분 인터랙티브 소설"로 게임=감정 예술 증명 |
+| 22 | Pokémon Café ReMix | The Pokémon Company | 2020 | 연 ~$390만(2024) | 첫 달 290만 | 포켓몬 IP 캐주얼 확장 — 라이트 유저 힐링 퍼즐, 브랜드 유지용 소규모 타이틀 |
+| 23 | Legends of Kingdom Rush | Ironhide Games | 2021 | Apple Arcade 독점(미공개) | 프랜차이즈 전체 6,300만 | 타워디펜스 IP → 턴제 RPG 전환 — Apple Arcade 독점으로 구독 플랫폼 내 팬층 공략 |
+| 24 | Disney Sorcerer's Arena | Glu Mobile/EA | 2020 | 월 ~$70~100만(추정) | 수백만 | 디즈니·픽사 100+ IP 수집 배틀 — IP 다양성이 셀링포인트, 소형 타이틀 수준 |
+| 25 | Beatstar | Space Ape | 2021 | *(→ #9 참조)* | — | *(중복, #9와 동일)* |
+
+> **1-J 핵심 인사이트 3가지**: ①**프리미엄 유료의 수익 천장**: Monument Valley($25M), Stardew Valley(멀티플랫폼 예외), Florence($150만) — 수상 없으면 UA 불가, 멀티플랫폼 아니면 천장 명확. ②**플랫폼화 조건**: Roblox(UGC 수백만 게임)·Geometry Dash(UGC 레벨)처럼 유저가 콘텐츠를 만드는 구조만이 진정한 플랫폼이 됨. Among Us는 게임 1개라 콘텐츠 한계 명확. ③**바이럴 부활의 조건**: Among Us·Geometry Dash 2.2 — 콘텐츠 자체의 SNS 친화성이 있어야 함.
+
+---
+
 ## 파트 2 추가. 실패 게임 2차 분석
 
 ---
@@ -553,6 +626,88 @@ NieR Reincarnation, Echoes of Mana, Engage Kill, FF Record Keeper (글로벌), K
 
 ---
 
+## 파트 2 추가 2. 실패 게임 3차 분석 (50종)
+
+---
+
+### 2-E. 실패 일본 가챠 서비스 종료 + 서구 IP 모바일 실패 25종
+
+| # | 게임명 | 개발사 | 기간 | 핵심 실패 원인 |
+|---|--------|--------|------|---------------|
+| 1 | Harry Potter: Wizards Unite | Niantic/WB | 2019~2022 | Pokemon GO 클론에 HP 스킨만 — "마법사가 된 느낌" 전무. 누적 DL 2,030만, 매출 $3,940만(PokemonGO의 1/30 미만) |
+| 2 | Dragalia Lost | Nintendo/Cygames | 2018~2022 | 닌텐도 "IP 홍보 도구" 전략 vs 오리지널 IP 수익화 충돌. 비P2W 설계로 수익 급감(연 $22M), 경쟁 심화 |
+| 3 | SINoALICE | Pokelabo/Square Enix | 글로벌 2021~2023 | Square Enix 모바일 구조조정 희생양. 일본↔글로벌 콘텐츠 갭. 핵심 길드전 시스템 글로벌 미최적화 |
+| 4 | NieR Re[in]carnation | Applibot/Square Enix | 글로벌 2021~2024 | 글로벌 서버 생애 매출 $100만 미만. $140M 손실 구조조정 일환으로 "스토리 완결" 명분 포장 종료 |
+| 5 | Bravely Default: Brilliant Lights | Square Enix | 2022~2023 | 일본 내수 전용, 출시 2주 400만 유저도 1년 만에 수익성 한계. 글로벌 확장 없이 정리 |
+| 6 | Mobius Final Fantasy | Square Enix | 2015~2020 | 동기간 FFBE에 내부 자원 배분 밀림. 5년 운영 후 글로벌 서버 먼저 정리 |
+| 7 | Star Ocean: Anamnesis | Square Enix/tri-Ace | 글로벌 2018~2019 | 글로벌 출시 15개월 만에 종료. Star Ocean IP 글로벌 인지도 부족 + 기대치 미달 공식 인정 |
+| 8 | Dissidia FF: Opera Omnia | Square Enix/Team Ninja | 2018~2024 | 7년 운영 후 종료(상대적 장수). 2023년 11월 과금 즉시 중단 → 수익성 임계점 도달 시그널 |
+| 9 | Chain Chronicle | Sega/Gumi | 글로벌 2014~2016 | Gumi 사업 방향 전환으로 1.5년 만에 정리. 일본↔글로벌 콘텐츠 격차 심각 |
+| 10 | Valkyrie Connect | Ateam | 2016~(실질방치) | 공식 포럼 2020년 폐쇄. Ateam 신작 집중으로 업데이트 빈도 급감. 신규 유입 없는 좀비 생존 상태 |
+| 11 | Fantasica | Silicon Studio/DeNA | 2012~2019 | DeNA West 해산(2016) 후 수개월 방치. 게임 엔진 단종으로 최종 종료 |
+| 12 | Avengers Academy | TinyCo(Jam City)/Marvel | 2016~2019 | 모회사 Jam City 대규모 감원 후 종료. Disney의 Pixar 계약 체결로 Marvel 타이틀 자원 재배분 |
+| 13 | Marvel: Avengers Alliance | Playdom/Disney | 2012~2016 | Facebook 브라우저 플랫폼 전체의 쇠퇴. MAA 2 기대치 미달 후 동시 종료 |
+| 14 | Command & Conquer: Rivals | EA Redwood | 2018~2020 | E3 팬 야유로 출발. Clash Royale 아류 인식. 출시 첫 달 $200만 → 3개월 $100만으로 급감 |
+| 15 | Elder Scrolls: Blades | Bethesda | 2019~2026.06(예정) | 공격적 P2W(OpenCritic 37점). 2026년 현재 월 매출 $2만 — 서버비 이하 추정. 수년간 업데이트 없음 |
+| 16 | Ghostbusters World | NextAge/4:33 | 2018~2020 | Ghostbusters: Afterlife 개봉 연기로 바이럴 기회 소실. 2019년 5월 이후 업데이트 전무. AR 2세대 실패 |
+| 17 | Game of Thrones: Beyond the Wall | Behaviour/Tilting Point | 2020~2023 | GOT 시즌8 실망감(2019) 직후 출시 → IP 기대치 붕괴 상태에서 "저품질 머니 그랩" 첫인상 극복 실패 |
+| 18 | Westworld Mobile | Behaviour/WB | 2018~2019 | Bethesda 저작권 소송("Fallout Shelter 코드 무단 유용"). 법적 합의 후 강제 종료 |
+| 19 | Battlefield Mobile | EA/Industrial Toys | 소프트론치 후 2023.01 취소 | Apple IDFA 정책 변경으로 UA 비용 폭등. BF2042 참사 후 EA 내부 투자 설득력 소멸. 120명 스튜디오 해산 |
+| 20 | Star Wars: Uprising | Kabam | 2015~2016 | 출시 1년 만에 종료. 과도한 그라인드로 진입장벽 고착. "목표 성과 미달" 공식 인정 |
+| 21 | Star Wars: Force Arena | Netmarble | 2017~2019 | 출시 1주년 650만 유저에도 2년 만에 종료. 카드 수집 P2W + 라이선스 비용 대비 수익 불균형 |
+| 22 | Family Guy: Quest for Stuff | TinyCo(Jam City)/Fox | 2014~2025.01 | 11년 운영 후 종료. 말년 월 DL 1만·매출 $5만 수준. 2020년 이후 사실상 좀비 상태 |
+| 23 | South Park: Phone Destroyer | Ubisoft RedLynx | 2017~(실질방치) | 2022년 "마지막 카드" 발표 후 신규 콘텐츠 전무. 월 DL 2만·매출 $6만으로 명맥 유지 |
+| 24 | Transformers: Forged to Fight | Kabam/Netflix판 | 2017~2023(원본) | 2023년 원본 종료 후 Netflix 독점 재출시. Netflix판도 수개월 후 업데이트 중단. 동일 패턴 반복 |
+| 25 | The Simpsons: Tapped Out | EA/Gracie | 2012~2025.01 | 12년 308회 업데이트 후 종료. 오프라인 모드 미지원으로 완전 소멸. 팬 커뮤니티 Project Springfield로 부활 시도 |
+
+**2-E 핵심 패턴:**
+- **Square Enix 반복 실패 구조**: SINoALICE·NieR·Bravely Default·Mobius·Star Ocean — 10년간 동일 실수 반복. 일본↔글로벌 콘텐츠 갭, 글로벌 운영 역량 부재가 구조적으로 고착
+- **IP 타이밍 법칙**: GOT Beyond the Wall은 시즌8 실망(2019) 직후 출시(2020), Ghostbusters World는 영화 연기와 함께 모멘텀 소실. Pokemon GO가 시리즈 20주년 절정기에 출시한 것과 정반대
+- **좀비 상태 = 공식 종료보다 무책임**: Family Guy·South Park·Valkyrie Connect는 공식 종료 없이 수년간 방치. 유저는 게임이 살아있다 착각하며 과금, 개발팀은 다른 프로젝트로 이동
+- **AR 2세대 집단 실패**: Harry Potter Wizards Unite·Ghostbusters World — Pokemon GO 이후 AR 게임이 IP 핵심 경험을 메카닉으로 번역하지 못하고 Pokemon GO 클론에 스킨만 입힌 결과
+
+---
+
+### 2-F. 실패 중국 MMO 글로벌 + 최근 신작 부진 25종
+
+| # | 게임명 | 개발사 | 기간 | 핵심 실패 원인 |
+|---|--------|--------|------|---------------|
+| 1 | Tower of Fantasy | Hotta Studio/Level Infinite | 2022~(급락) | "Genshin 킬러" 마케팅 역효과 — 첫날부터 Genshin과 비교당함. 품질 격차 명확, 3개월 내 Top100 이탈 |
+| 2 | Tarisland | Tencent/Level Infinite | 2024~ | WoW 클래식의 시각적·시스템 복사 수준. "왜 WoW 대신 이걸 하나"에 대한 답 없음. 출시 1개월 내 Top100 이탈 |
+| 3 | Blue Protocol | Bandai Namco | 2023~2025.01(일본) | 일본 7개월 만에 글로벌 출시 취소. 2025년 1월 일본 서버도 종료 발표. 플랫폼 전략 모호, 개발비 회수 불가 |
+| 4 | Gran Saga | NPIXEL/Netmarble | 글로벌 2022~2024 | 그래픽 과시 후 게임성 공허. 자동전투+P2W로 서구권 거부감 유발. 사전등록 100만 후 1주 만에 수익화 실패 |
+| 5 | Sword Art Online VS | Bandai Namco | 2023~2024(7개월) | IP 의존 전략 한계. SAO 팬이 원하는 "세계관 몰입"보다 수집·대전 메타에 집중. 앱스토어 평점 2.8점 |
+| 6 | Ragnarok: The Lost Memories | Gravity/NGELGAMES | 2022~2024 | 라그나로크 IP를 수집형 카드게임으로만 소비. 원작 팬은 실망, 신규 유저는 진입 동기 없음 |
+| 7 | Night Crows | Wemade | 2023~(급락) | P2E 구조적 자기파괴: 초기 유저 토큰 덤핑 → 가치 하락 → 신규 유입 차단 → 생태계 붕괴. WNCG 토큰 70%+ 하락 |
+| 8 | MIR M | Wemade | 2022~(급락) | Night Crows와 동일한 P2E 붕괴 패턴. 미르의전설 IP를 P2E 실험 소재로 소모. "코인 발행 수단" 이미지 고착 |
+| 9 | Ni No Kuni: Cross Worlds 글로벌 | Netmarble | 2022 | Level-5 동화 감성 IP + Netmarble P2W/NFT 조합 정면충돌. "어린이 IP를 코인 뽑기에" 정서적 반발. 평점 폭격 |
+| 10 | Gran Saga (Dungeon Fighter Tribute) | NPIXEL | — | (→ #4 참조) | — |
+| 10 | Eternal City | NetEase | 2021~(방치) | 좀비 서바이벌+MMORPG가 어정쩡. NetEase 내부 자원 분산으로 방치 상태 |
+| 11 | Dawn of Isles | NetEase | 2021~(방치) | Genshin Impact 출시 이후 완전히 묻힘. 내부 자원이 Marvel Snap 등 성공작으로 재배분 |
+| 12 | Myth: Gods of Asgard | 37Games | 2022~(방치) | 북유럽 신화 소재를 중국 MMORPG 공식에 억지 적용. 정보 과잉 UI/UX로 글로벌 타겟 감성 불일치 |
+| 13 | Diablo Immortal (P2W 구조) | Blizzard/NetEase | 2022~(논란 지속) | 출시 3개월 $100M 수익 vs 유저스코어 0.2/10. "완전한 장비 강화에 $110,000 필요" 계산 바이럴 → IP 자산 소각 |
+| 14 | Mario Kart Tour | Nintendo | 2019~2023(랭킹 종료) | 핵심 재미인 "공정한 레이싱"을 가챠 캐릭터 스펙차가 파괴. 2023년 멀티플레이어 랭킹 모드 공식 종료 |
+| 15 | Summoners War: Lost Centuria | Com2uS | 글로벌 2021~2022 | 원작 팬이 원한 것은 "Sky Arena 계승"이었으나 PvP 카드게임 출시. 장르 미스매치. 글로벌 16개월 만에 철수 |
+| 16 | V4 글로벌 | Nexon | 2020~2021(글로벌) | 한국식 대규모 PvP MMORPG + 자동전투 + P2W. 언어 현지화만 하고 게임 설계 현지화 없음. 10개월 만에 종료 |
+| 17 | KartRider Rush+ | Nexon | 2020~2023(방치) | Mario Kart Tour와 동시기 경쟁에서 IP 열세. PC 카트라이더 팬덤은 모바일 이식판 불만족 |
+| 18 | Seven Deadly Sins: Grand Cross 글로벌 | Netmarble | 2020~(하락) | 애니메이션 IP 완결 후 신규 유입 차단. 가챠 인플레이션으로 기존 유저 이탈. IP 수명 = 게임 수명 |
+| 19 | Cookie Run: OvenBreak 글로벌 | Devsisters | 2016~(글로벌 부진) | 러너 장르 글로벌 시장 수축. Cookie Run: Kingdom이 동일 IP 내부에서 자기잠식 |
+| 20 | Random Dice: GO | 111% | 2023~2024 | 배틀로얄+타워디펜스 하이브리드 컨셉이 어정쩡. 소규모 스튜디오 글로벌 라이브서비스 운영 역량 부족 |
+| 21 | Eternal Return (모바일) | Nimble Neuron | 2023~ | PC MOBA 조작 복잡성 모바일 이식 실패. PC 팬덤은 이동 거부, 신규 모바일 유저는 학습 장벽 이탈 |
+| 22 | Dungeon Fighter Mobile (글로벌 미출시) | Nexon | 중국 2017~(성공/글로벌 미출시) | 중국에서 대성공이나 IP 분쟁(네오플-넥슨-텐센트 구조)으로 글로벌 출시 계속 연기 — 성공이지만 기회 상실 |
+| 23 | Clash of Clans 클론군 | 다수 | 2016~2023 | Supercell 네트워크 효과와 브랜드 해자 넘기 불가. 차별화 없는 "조금 다른 기지 건설" 반복 = UA 비용만 소진 |
+| 24 | Pokémon Masters EX (글로벌 부진) | DeNA/TPC | 2019~(내수 의존) | 3v3 실시간 배틀이 모바일 세션 부적합. Pokémon GO와의 내부 경쟁 포지션 불명확. 글로벌 매출 70%+ 일본 |
+| 25 | Tarisland (서비스 현황) | Tencent | 2024~ | (→ #2 참조, 별도 심화) P2W 도입 논란으로 서구권 커뮤니티 이탈 가속 |
+
+**2-F 핵심 패턴:**
+- **Genshin 클론의 포지셔닝 자살**: Tower of Fantasy·Tarisland·Gran Saga — "Genshin 대안"으로 포지셔닝하거나 비교당하는 순간, 첫날부터 Genshin과 비교되어 존재 이유가 사라짐. 비교에서 지는 순간 이미 종료
+- **P2E의 음의 피드백 루프**: Night Crows·MIR M·Ni No Kuni NFT — 초기 유저 토큰 덤핑 → 가치 하락 → 신규 유입 차단 → 생태계 붕괴의 순환이 예외 없이 반복됨
+- **한국 MMORPG 글로벌 이식 공식 실패 반복**: V4·Gran Saga·Night Crows·MIR M — 자동전투+대규모 PvP+P2W는 한국 내수 검증 공식이지만 글로벌(특히 서구)에서는 "과금 시뮬레이터"로 인식. 2020~2024년 내내 같은 실수 반복
+- **IP 소각(IP Burning)**: SAO VS·라그나로크 LM·니노쿠니 — IP 팬덤이 원하는 "세계관 확장·몰입"을 제공하지 않고 캐릭터 뽑기 목록으로만 활용. 팬덤이 오히려 강력한 비판자로 전환
+- **플랫폼 정체성 혼란**: Eternal Return 모바일·Blue Protocol·KartRider — PC/콘솔을 모바일에 축소 이식. PC 팬은 열화판이라 외면, 모바일 유저는 조작 장벽에 이탈. 양쪽 모두에게 버려짐
+
+---
+
 ## 파트 3 추가. 2차 분석에서 도출된 신규 법칙
 
 ---
@@ -622,9 +777,113 @@ Last War: Survival은 퍼즐 광고로 유입 → 실제 4X SLG를 보여주는 
 
 ---
 
+## 파트 3 추가 2. 3차 분석에서 도출된 신규 법칙
+
+---
+
+### 법칙 19. Genshin 클론의 비교 자살 — 지배자와 비교당하는 포지셔닝은 죽음
+
+> **"Genshin 대안"으로 마케팅하거나 비교당하는 순간, 첫날부터 Genshin과 비교되며 비교에서 지는 즉시 존재 이유가 사라진다.**
+
+Tower of Fantasy, Tarisland, Gran Saga, Blue Protocol이 동일한 경로로 실패했슴다:
+
+```
+"Genshin 킬러" 포지셔닝
+→ 출시 첫날 유저가 Genshin과 비교
+→ 품질 격차 발견 (그래픽, 스토리, 조작감)
+→ "그냥 Genshin 하겠다"
+→ 1~3개월 내 급락
+```
+
+**이 법칙이 적용되는 범위**: Genshin에만 해당하지 않슴다. 어떤 장르든 지배적 1위 타이틀이 있을 때, 2위 포지셔닝은 유저를 직접 비교로 유도하는 자살 전략임다. 대안이 되려면 "다른 이유"가 있어야 함다.
+
+---
+
+### 법칙 20. P2E의 음의 피드백 루프 — 토큰 이코노미는 구조적 자기파괴
+
+> **P2E(Play-to-Earn) 모델은 게임 내부에서 예외 없이 같은 순서로 붕괴한다.**
+
+```
+초기 유저 참여 (높은 토큰 가치)
+→ 초기 유저 토큰 덤핑 (수익 실현)
+→ 토큰 가격 하락
+→ 신규 유입 차단 ("이제 돈 못 버는 게임")
+→ 생태계 붕괴
+→ 남은 유저도 이탈
+```
+
+Night Crows(WNCG 70%+ 하락), MIR M(토큰 90% 폭락), Ni No Kuni: Cross Worlds NFT — 세 게임 모두 이 루프를 그대로 밟았슴다. 법칙 18(NFT 통합 = 커뮤니티 반발)과 다른 점: P2E는 **"커뮤니티 반발"이 아니라 경제 구조 자체의 수학적 붕괴**임다.
+
+---
+
+### 법칙 21. 프리미엄 유료 모바일의 이중 법칙
+
+> **프리미엄 모바일 게임은 수익 천장이 명확하게 낮다. 단, 두 가지 예외 조건이 있다.**
+
+| 조건 | 예시 | 결과 |
+|------|------|------|
+| 수상·언론 노출 = UA 대체 | Monument Valley(BAFTA+애플 AotY) | $25M+ 달성 |
+| 멀티플랫폼 확장 | Stardew Valley(PC+콘솔+모바일) | $5억+(전 플랫폼) |
+| 수상 없음·단일 플랫폼 | Alto's Adventure | ~$3.5M |
+| 수상 있음·단일 플랫폼 | Florence | ~$150만 |
+
+**교훈**: 모바일 프리미엄을 선택했다면 ①어워드를 노리거나 ②PC/콘솔 멀티플랫폼을 함께 출시해야 함다. 모바일 단독 프리미엄은 "예술적 성취"는 가능하지만 "경제적 지속 가능성"은 매우 낮슴다.
+
+---
+
+### 법칙 22. 플랫폼화의 단 하나의 조건 — UGC 생태계
+
+> **진정한 플랫폼이 된 모바일 게임은 예외 없이 유저가 콘텐츠를 생산하는 구조를 가지고 있다.**
+
+| 게임 | UGC 구조 | 결과 |
+|------|---------|------|
+| Roblox | 유저가 게임 제작·판매 | 연 $48.8억, Z세대 소셜 허브 |
+| Geometry Dash | 유저가 레벨 제작 | 7억 DL, 2024년 Steam 부활 |
+| Among Us | 게임 1개 (UGC 없음) | 피크 후 DAU 급락 |
+| Duolingo | 코스 콘텐츠+소셜리그 | 준플랫폼화, 연 $7.5억 |
+
+**교훈**: "게임이 콘텐츠를 공급하는 구조"는 반드시 개발 속도의 한계에 부딪힘다. UGC 구조 없이 플랫폼화를 목표로 하는 것은 불가능함다.
+
+---
+
+### 법칙 23. IP 타이밍 법칙 — IP는 절정기에만 효력이 있다
+
+> **IP의 힘은 그 IP가 문화적으로 살아있을 때만 발휘된다. 절정을 지나 쇠락 중인 IP는 오히려 부정적 기대치를 가져온다.**
+
+| 타이밍 | 예시 | 결과 |
+|--------|------|------|
+| IP 절정기 | Pokemon GO (포켓몬 20주년 2016) | $10억/년 달성 |
+| IP 절정기 | FFBE (FFXV 출시 시기 연동) | 누적 $1B+ |
+| IP 쇠락 직후 | GOT: Beyond the Wall (시즌8 실망 직후) | 3년 만에 종료 |
+| IP 쇠락 연동 | Seven Deadly Sins: Grand Cross (애니 완결 후) | 매출 급감 |
+| IP 연기 중 | Ghostbusters World (영화 연기 중) | 업데이트 중단 |
+
+**교훈**: IP 게임 개발을 결정할 때는 "지금 IP가 얼마나 강한가"뿐 아니라 "출시 시점에 IP가 얼마나 강할 것인가"를 반드시 예측해야 함다. IP 사이클은 게임 개발 기간(2~4년)보다 빠르게 변함다.
+
+---
+
+### 법칙 24. 좀비 상태 운영 — 공식 종료보다 더 무책임한 선택
+
+> **업데이트 없이 서버만 유지하는 "좀비 상태"는 유저에게 공식 종료보다 더 큰 피해를 준다.**
+
+Family Guy: Quest for Stuff(2020~2025.01까지 5년 방치), South Park: Phone Destroyer(2022~현재), Valkyrie Connect, Fantasica가 모두 같은 패턴을 보였슴다:
+
+```
+업데이트 중단 (팀은 다른 프로젝트로 이동)
+→ 유저는 게임이 살아있다 착각하며 과금 지속
+→ 수년 후 갑작스러운 종료 공지 (환불 기회 없음)
+```
+
+**공식 종료의 경우**: 유저에게 마무리 시간 제공, 환불 절차 가능, 게임 기억을 정리할 기회 있음.
+**좀비 상태의 경우**: 과금 피해 지속, 갑작스러운 종료, 데이터 소멸, 신뢰 파괴.
+
+**교훈**: 서비스 종료를 결정했다면 "공식 선언 + 충분한 사전 통보(최소 3개월) + 환불 절차"가 업계 최소 책임임다.
+
+---
+
 ## 파트 4. 핵심 수치 요약
 
-> 총 196종 게임 분석 기반 (성공 91종 + 실패 105종)
+> 총 296종 게임 분석 기반 (성공 141종 + 실패 155종) — 법칙 24개 도출
 
 ### 역대 최고 수익 게임 (TOP 15)
 
@@ -677,8 +936,8 @@ Last War: Survival은 퍼즐 광고로 유입 → 실제 4X SLG를 보여주는 
 
 ## 최종 결론: 모바일 게임 성공 공식
 
-> **196종 분석 후 업데이트 (2차 개정)**
-> 121종까지는 "잘 만드는 것"에 집중했다면, 196종을 보니 **"어디서 싸우느냐"와 "몇 명이 싸우느냐"가 먼저 결정되어야 한다**는 구조가 새로 드러났슴다.
+> **296종 분석 후 업데이트 (3차 개정)**
+> 196종까지는 "어디서 싸우느냐"와 "몇 명이 싸우느냐"가 핵심이었다면, 296종을 보니 **"어떤 경제 구조를 설계하느냐"(P2E 붕괴, 좀비 운영, 비교 포지셔닝)와 "IP를 언제 쓰느냐"(타이밍)가 추가 변수**로 드러났슴다.
 
 ### 성공 공식 (2차 개정)
 
@@ -693,9 +952,12 @@ Last War: Survival은 퍼즐 광고로 유입 → 실제 4X SLG를 보여주는 
     OR (팀 규모 초과 라이브서비스)
     OR (IP만 믿고 게임성 생략)
     OR (극단적 P2W)
-    OR (NFT/블록체인 통합)
+    OR (NFT/블록체인/P2E 통합)
+    OR (지배적 1위와 직접 비교되는 포지셔닝)
     OR (마케팅 약속 위반)
     OR (M&A 후 팀 해체·방치)
+    OR (IP 쇠락기 출시 타이밍)
+    OR (좀비 상태 운영)
 ```
 
 ### 121종 → 196종에서 새로 발견된 5가지 구조
@@ -781,10 +1043,13 @@ Gardenscapes: $36억+  /  Homescapes: $14억+
 3. **유니크함을 한 문장으로 설명한다**: Arknights("타워디펜스 + 미소녀 수집"), NIKKE("뒤에서 쏘는 수직 슈터"), Monster Strike("친구와 함께 핀볼 RPG") — 15초 안에 설명 불가능하면 다시 기획임다
 4. **소셜 레이어는 초기에 설계한다**: 나중에 추가하면 이미 늦슴다
 5. **마케팅 기대치 = 출시 게임의 계약**: 약속 이하 출시는 최악. Last War처럼 역발상을 택하든, 약속을 지키든, 중간은 없슴다
-6. **NFT·블록체인은 하지 않는다**: 예외 없이 커뮤니티 반발로 종료됨다
+6. **NFT·블록체인·P2E는 하지 않는다**: 커뮤니티 반발(NFT)과 경제 구조 붕괴(P2E) 두 가지 경로 모두 예외 없이 실패임다
 7. **IP 파생 출시 전 자기잠식을 계산한다**: 신작이 기존작 유저를 이동시킬 뿐이라면 총량은 늘지 않슴다
+8. **지배적 1위와 직접 비교되는 포지셔닝을 피한다**: "Genshin 대안"이 되는 순간 Genshin과 비교되며 비교에서 지면 존재 이유가 사라짐다
+9. **IP 사용 타이밍을 예측한다**: 출시 시점의 IP 강도를 예측. 개발 기간(2~4년) 동안 IP 사이클이 변할 수 있슴다
+10. **서비스 종료 결정 시 공식 선언한다**: 좀비 운영은 유저에게 더 큰 피해. 최소 3개월 전 공지 + 환불 절차 = 업계 최소 책임임다
 
 ---
 
-*본 문서는 2026년 3월 기준 공개 데이터를 기반으로 작성되었슴다. (196종 분석 2차 개정)*
+*본 문서는 2026년 3월 기준 공개 데이터를 기반으로 작성되었슴다. (296종 분석 3차 개정, 법칙 24개)*
 *출처: Sensor Tower, Business of Apps, PocketGamer, GameWorldObserver, AppMagic 등*
