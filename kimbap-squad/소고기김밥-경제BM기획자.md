@@ -21,6 +21,7 @@
 | `growth-system-principles.md` | 원칙 5(P2W 스펙트럼 관리), 원칙 8(과금 연결 구조)이 BM 설계의 핵심 가이드임다 |
 | `rpg-growth-systems-master-analysis.md` | Part 3 성공 공식 — 성장 시스템과 BM이 어떻게 연결되는지 데이터 확인 |
 | `rpg-skill-design-bible.md` | 6장 스킬 성장 구조 — 스킬 성장과 BM 연동 모델 참고 |
+| `monetization-design-principles.md` | **20종 F2P 게임 데이터 기반 BM 설계 9대 원칙 바이블 (BM 기획 시 필수 체크리스트)** |
 | `research/growth-systems/gacha-rpg-growth-systems-research.md` | 수집형 RPG 천장 시스템, BM 구조 벤치마크 |
 
 성장 시스템이 BM과 연결되는 접점(과금 포인트 위치, P2W 격차 수준, 천장 구조)은 **데이터 기반으로 설계**해야 함다. 감으로 짜면 안 됨다.
