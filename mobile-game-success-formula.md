@@ -45,6 +45,9 @@
 | 18 | Honkai Impact 3rd | HoYoverse | 2016 | 수억 달러 | 3,500만+ | 모바일 콘솔급 액션 RPG의 선구자 |
 | 19 | Puzzle & Dragons | GungHo | 2012 | $7B+ | 6,200만+ | 매치-3 퍼즐 + RPG의 역사적 결합 |
 | 20 | Pokémon Masters EX | DeNA/The Pokémon Company | 2019 | $300M+ | — | 포켓몬 시리즈 트레이너들이 함께 싸우는 컨셉 |
+| 21 | Blue Archive | NAT Games/Nexon/Yostar | 2021 | $650M+ | 1,300만+ | 학원물 + 총기 전투 RPG + 일본 서브컬처 팬층 정밀 타겟 |
+| 22 | Guardian Tales | Kong Studios/Kakao | 2020 | $100M+ | 1,000만+(7개월) | 레트로 도트 그래픽 + 퍼즐 + 액션 RPG + 메타 유머 |
+| 23 | Brown Dust 2 | Neowiz | 2023 | $10M+(2개월) | 사전등록 100만+ | 전략 RPG + 섬세한 캐릭터 커스터마이징 + F2P 친화 |
 
 ---
 
