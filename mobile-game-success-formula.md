@@ -398,6 +398,229 @@ NieR Reincarnation, Echoes of Mana, Engage Kill, FF Record Keeper (글로벌), K
 
 ---
 
+## 파트 1 추가. 성공 게임 2차 분석 (100종 확장)
+
+---
+
+### 1-D. 성공 MOBA·배틀로얄·FPS 8종
+
+| # | 게임명 | 개발사 | 출시 | 누적 수익 | 다운로드 | 핵심 유니크 포인트 |
+|---|--------|--------|------|-----------|----------|-------------------|
+| 1 | Call of Duty: Mobile | Activision/TiMi | 2019 | $18억+ | 10억+ | COD IP + 배틀로얄 + 멀티플레이어 듀얼 모드 |
+| 2 | League of Legends: Wild Rift | Riot Games | 2021 | $10억+ | 1.1억+ | P2W 없는 스킨 과금 + PC LoL 충실한 모바일 이식 |
+| 3 | Pokémon UNITE | TiMi/TPC | 2021 | $8,270만+ | 2억+ | 포켓몬 IP + MOBA 장르 첫 결합 |
+| 4 | Mario Kart Tour | Nintendo | 2019 | $3.65억 | 2.9억 | 마리오카트 IP + 실제 도시 배경 코스 |
+| 5 | Animal Crossing: Pocket Camp | Nintendo | 2017~2024 | $2.5억 | — | AC IP 모바일 이식 → 2024 종료 후 $19.99 오프라인 앱 전환 |
+| 6 | Pokémon Café ReMix | Genius Sonority | 2020 | — | 290만+(초기) | 포켓몬 카페 경영 + 퍼즐 결합 |
+| 7 | MLB Tap Sports Baseball | Glu/EA | 2015 | — | 6,000만 | MLB 공식 라이선스 + 원탭 타격 |
+| 8 | NBA 2K Mobile | 2K Games | 2019 | 연 ~$720만 | — | NBA 공식 라이선스 + FUT형 선수 카드 |
+
+---
+
+### 1-E. 성공 한국 MMORPG 5종
+
+| # | 게임명 | 개발사 | 출시 | 누적 수익 | 핵심 유니크 포인트 |
+|---|--------|--------|------|-----------|-------------------|
+| 1 | Lineage M | NCSoft | 2017 | $4.23B+ | 26년 PC팬 모바일 흡수 + 극단적 아이템 경쟁 + 업계 역대 최고 ARPU $279 |
+| 2 | Lineage 2M | NCSoft | 2019 | $1.76B+ | 4K 오픈월드 + 최대 10,000명 동시접속 |
+| 3 | Lineage W | NCSoft | 2021 | $1B+ | NCSoft 최초 글로벌 동시 출시 + AI 실시간 다국어 번역 PvP |
+| 4 | Black Desert Mobile | Pearl Abyss | 2019 | 연 $376M(초기) | PC 원작 무쌍 액션 + 모바일 최고 수준 3D 그래픽 |
+| 5 | Ni No Kuni: Cross Worlds | Netmarble | 2021 | $500M+(추정) | Level-5·Ghibli IP + 아시아 11일 내 $101M (포켓몬GO보다 빠른 $100M 달성) |
+
+---
+
+### 1-F. 성공 IP 활용 수집·전략 RPG 7종
+
+| # | 게임명 | 개발사 | 출시 | 누적 수익 | 핵심 유니크 포인트 |
+|---|--------|--------|------|-----------|-------------------|
+| 1 | Marvel Contest of Champions | Kabam | 2014 | $2B+ | Marvel IP 280+ 챔피언 + 1분 격투 + 10년 장수 |
+| 2 | Star Wars: Galaxy of Heroes | EA Capital Games | 2015 | $1.4B+ | SW IP 전 캐논 캐릭터 수집 + 영화 출시 연동 업데이트 |
+| 3 | Marvel Strike Force | FoxNext/Scopely | 2018 | $1B+ | Marvel IP × 스쿼드 전략 RPG + D2C 웹 스토어 전략 |
+| 4 | Harry Potter: Hogwarts Mystery | Jam City | 2018 | $500M+ | HP IP + 호그와트 학생 1인칭 서사 + 에너지 클리프행어 FOMO |
+| 5 | Empires & Puzzles | Small Giant/Zynga | 2017 | $2.4B+ | 매치-3 × RPG × 성 건설 3중 장르 융합 |
+| 6 | Game of Thrones: Conquest | WB/Turbine | 2017 | $214M+ | GOT IP + TV 시리즈 방영 연동 이벤트 |
+| 7 | Seven Knights | Netmarble | 2014 | — | 한국·동남아 10년 장수 IP → 파생 타이틀 4종 |
+
+---
+
+### 1-G. 성공 소셜 카지노 4종
+
+| # | 게임명 | 개발사 | 출시 | 누적/연 수익 | 핵심 유니크 포인트 |
+|---|--------|--------|------|-------------|-------------------|
+| 1 | Coin Master | Moon Active | 2016 | 누적 $60B+ | 슬롯머신 + 마을건설 + 소셜 공격/복수 루프 + 女 35세+ 타겟 |
+| 2 | Slotomania | Playtika | 2011 | 연 ~$500M | 소셜 카지노 장르 시초·대명사 |
+| 3 | Bingo Blitz | Playtika | 2012 | 연 $600M+ | 세계 1위 빙고 앱 + TV 게임쇼 연계 + 中年 여성층 장악 |
+| 4 | Jackpot Party Casino | SciPlay | 2012 | $1B+ | Vegas 실제 라이선스 슬롯 200개+ + 미국 소셜 슬롯 1위 |
+
+> **소셜 카지노 구조적 내구성**: Slotomania(2011)·Bingo Blitz(2012)·Jackpot Party(2012) 모두 13년+ 생존. 중장년 코어 유저의 이탈률이 낮고 신규 진입 경쟁자도 적은 방어적 장르.
+
+---
+
+### 1-H. 성공 기타·하이브리드 9종
+
+| # | 게임명 | 개발사 | 출시 | 누적 수익 | 핵심 유니크 포인트 |
+|---|--------|--------|------|-----------|-------------------|
+| 1 | Last War: Survival | First Fun | 2023 | $2B+ | 역발상 광고(광고와 다른 게임임을 공개) + 셀럽 마케팅으로 2024년 $1.3B |
+| 2 | AFK Journey | Lilith Games | 2024 | $250M+ | AFK Arena 세계관 3D 오픈월드 확장 + 2024 Google·Apple 올해의 게임 |
+| 3 | Punishing: Gray Raven | Kuro Games | 2019 | $159M+(글로벌) | 콘솔급 3D 액션 RPG 모바일 이식 + Wuthering Waves 개발사 기술 검증작 |
+| 4 | Path to Nowhere | AISNO Games | 2022 | ~$10M+ | 교도소장-죄수 세계관 + 타워디펜스 RPG + 비평가 극찬 |
+| 5 | Seven Knights Idle Adventure | Netmarble | 2023 | $40M+ | Seven Knights IP 방치형 확장 |
+| 6 | Infinity Kingdom | YOUZU/GTArcade | 2021 | 월 $1.8M | 역사 불멸자 수집 + 카툰 스타일로 SLG 진입장벽 완화 |
+| 7 | Dislyte | Lilith Games | 2022 | ~$20M(초기) | 고대 신화 × 현대 EDM 도시 감성 재해석 — 초기 급부상 후 급락 |
+| 8 | Homescapes | Playrix | 2017 | $14억+ | 감성 스토리 + 저택 인테리어 메타 + 여성 35세+ 타겟 |
+| 9 | Gardenscapes | Playrix | 2016 | $36억+ | 정원 복원 스토리 + 메타게임 서사 도입 선구자 |
+
+---
+
+## 파트 2 추가. 실패 게임 2차 분석
+
+---
+
+### 2-C. 실패 서구권 라이브서비스·배틀로얄 23종
+
+| # | 게임명 | 개발사 | 기간 | 핵심 실패 원인 |
+|---|--------|--------|------|---------------|
+| 1 | Rumbleverse | Epic/Iron Galaxy | 2022~2022 (6개월) | Epic 스토어 독점 + MultiVersus 선점 + 파티 매칭 부재 |
+| 2 | Knockout City | EA/Velan Studios | 2021~2023 (2년) | F2P 전환 역풍 + 리텐션 설계 실패 |
+| 3 | Spellbreak | Proletariat Inc. | 2020~2022 | Activision 인수 후 개발팀 즉시 재배치 → 게임 종료 |
+| 4 | Crucible | Amazon Games | 2020~2020 (6개월) | 정체성 위기 + 6년 개발 + 음성채팅도 없이 출시 |
+| 5 | Anthem | BioWare/EA | 2019~2021 (종료) | 실질 개발 18개월 + BioWare 조직 붕괴 |
+| 6 | Bleeding Edge | Ninja Theory | 2020~2021 | Xbox Game Pass 무료 = 보상 구조 없음 + 팀 Hellblade 2로 이동 |
+| 7 | Paragon | Epic Games | 2016~2018 | Fortnite BR 폭발 후 내부 팀 전원 흡수 |
+| 8 | Splitgate | 1047 Games | 2021~2023 (방치) | 속편 개발 집중 → 원작+속편 동시 실패 |
+| 9 | Hyenas | Creative Assembly/SEGA | 2023 (출시 전 취소) | SEGA 역대 최대 예산 + 방향성 부재 |
+| 10 | Foamstars | Square Enix | 2024~2024 (11개월) | PS Plus 허수 유입 + Splatoon 아류 + 95% 이탈 |
+| 11 | PlanetSide Arena | Daybreak | 2019~2020 (4개월) | 배틀로얄만 있는 얼리액세스 → 동시접속 7명 |
+| 12 | WildStar | Carbine/NCSoft | 2014~2018 | 구독 MMORPG 포화 + 론칭 서버 불안정 |
+| 13 | Firefall | Red 5 Studios | 2014~2017 | 급여 지급 불가 → 스튜디오 붕괴 + 24시간 전 종료 통보 |
+| 14 | Fable Fortune | Mithril/Flaming Fowl | 2017~2020 | Hearthstone 클론 레드오션 + 동시접속 6명 |
+| 15 | Gwent (모바일) | CD Projekt | 2019~2023 | Midwinter 리워크 역풍 + 콘솔/모바일 포기 |
+| 16 | Duelyst | Bandai Namco/Counter Play | 2016~2020 | 완성도 높지만 마케팅 0 + 상대방 없는 멀티플레이 |
+| 17 | Battlerite Royale | Stunlock Studios | 2018~2019 | 원작 커뮤니티 분열 스핀오프 → 두 게임 동시 죽음 |
+| 18 | Diabotical | GD Studio | 2020~ (방치) | 아레나 FPS 장르 사실상 사망 + 99.6% 즉시 이탈 |
+| 19 | Realm Royale | Hi-Rez Studios | 2018~ (방치) | Hi-Rez 반복 방치 패턴 |
+| 20 | Darwin Project | Scavengers Studio | 2018~2022 | Apex Legends 기습으로 시장 장악 당함 |
+| 21 | Radical Heights | Boss Key Productions | 2018 (1개월) | LawBreakers 실패 후 재정 고갈 상태의 급조 출시 |
+| 22 | Fortnite Save the World | Epic Games | 2017~ (방치) | Fortnite BR 성공 후 원작 팀 100% 이동 |
+| 23 | Fear the Wolves | Vostok Games | 2019~2020 | 얼리액세스부터 매치 성립 불가 수준 |
+
+**2-C 핵심 패턴:**
+- **인력 블랙홀**: 사내 히트작이 원 게임 팀을 흡수 (Paragon→Fortnite BR, Bleeding Edge→Hellblade 2)
+- **배틀로얄 골든타임 종료**: 2019년 이후 신규 BR은 구조적으로 진입 불가
+- **F2P 전환의 역설**: 과금 의지 없는 체험자만 유입, 수익 없이 서버 비용만 증가
+- **M&A 즉사**: 팀을 산 인수합병은 게임 즉시 종료
+
+---
+
+### 2-D. 실패 한국·일본·중국·스포츠 IP 26종
+
+| # | 게임명 | 개발사 | 기간 | 핵심 실패 원인 |
+|---|--------|--------|------|---------------|
+| 1 | 야생의 땅: 듀랑고 | 넥슨/What!Studio | 2018~2019 | "착한 과금 + 규모의 경제" 모델 붕괴 + 수익화 전략 부재 |
+| 2 | A3: Still Alive | 넷마블 | 2020~2022 | 글로벌 배틀로얄 MMORPG 혼합 → 정체성 부재 |
+| 3 | 오딘: 발할라 라이징 | 라이온하트/카카오 | 2021~ (급락) | 초기 $125M/월 → 급격한 하락 + 라이온하트 상장 연기 |
+| 4 | 테라 히어로 | 크래프톤/레드사하라 | 2019~2021 | TERA IP 남발 (IP 5종 동시 운영 → 전부 종료) |
+| 5 | 스톤에이지 월드 | 넷마블 | 2021~2023 | 클래식 IP 모바일화 → 원작 팬 기대치 미달 |
+| 6 | War of the Visions: FFBE | Square Enix/Gumi | 2019~2025 (글로벌) | 글로벌 서버 콘텐츠 격차 6개월+ → 이탈 가속 |
+| 7 | Romancing SaGa Re;univerSe | Square Enix/Aiming | 2018~2024 (글로벌) | 일본 강한 IP의 글로벌 인지도 부재 |
+| 8 | Danmachi: Memoria Freese | Wright Flyer Studios | 2015~2024 (글로벌) | 원작 애니 인기 하락 연동 수익 급감 |
+| 9 | God Eater Online | Bandai Namco | 2017~2018 (19개월) | 원작 소규모 팬덤 + 라이브서비스 유지 불가 |
+| 10 | Terra Battle | Mistwalker | 2014~2020 | Hironobu Sakaguchi 명성에도 불구 모바일 수익화 전략 부재 |
+| 11 | Terra Battle 2 | Mistwalker | 2017~2018 (1년) | 전작 실패 교훈 미반영 |
+| 12 | Soul Tide | LemcnSun/IQI Games | 2022~2025 | 소형 스튜디오의 월 업데이트 유지 불가 |
+| 13 | Alchemy Stars | Tourdog/Level Infinite | 2021~2025 | 비주얼 높지만 전략 깊이 부족 + Genshin 이후 기준선 미달 |
+| 14 | Walking Dead: Road to Survival | Scopely | 2015~2024 | TWD IP 인기 하락 + AR 장르와 유사한 구조적 쇠퇴 |
+| 15 | Star Trek Fleet Command | Scopely | 2018~ (집단소송) | 가상 재화 소멸 → 집단소송 피소 |
+| 16 | Madden NFL Mobile | EA Sports | 2014~ (리셋 논란) | 연간 진행상황 리셋으로 과금 반복 강요 → 커뮤니티 반발 |
+| 17 | NBA Live Mobile | EA Sports | 2016~ (방치) | NBA 2K Mobile에 완전히 밀려 사실상 방치 상태 |
+| 18 | Transformers: Earth Wars | Space Ape/Backflip | 2016~ (연명) | IP 라이선스 게임의 장기 업데이트 동력 부족 |
+| 19 | Elemental Story World | Crooz/StudioZ | 2024~2025 (1년) | 소형 스튜디오 운영 한계 |
+| 20 | Another Eden | Wright Flyer Studios | 2017~ (수익 급감) | 스토리 퀄리티 ○, 가챠 수익화 × — 운영 수익 부족 |
+| 21 | 발할라 서바이벌 | 라이온하트 | 2024~ (실패) | 오딘 급락 이후 후속작도 실패 — 동일 패턴 반복 |
+| 22 | 마구마구 2020 | 컴투스 | 지속 (리셋 모델) | 연도별 리셋으로 장기 투자 의욕 소멸 |
+| 23 | FIFA Mobile (초기 모델) | EA Sports | 2016~2024 (리셋 철회) | 연간 리셋 = 과금 반복 강요 → 2024년 EA 공식 리셋 정책 철회 |
+| 24 | Ni No Kuni: Cross Worlds (글로벌 NFT) | Netmarble | 2022 | NFT 통합 → "재미 대신 돈벌이" 커뮤니티 반발 |
+| 25 | AxE: Alliance vs Empire | Nexon | 2017~2022 | 기술 품질 대비 차별화 콘텐츠 부족 + 글로벌 유저층 형성 실패 |
+| 26 | Illusion Connect | Superprism | 2020~2021 | 소형 스튜디오 지속 불가 + 후속작도 6개월 만에 종료 |
+
+**2-D 핵심 패턴:**
+- **글로벌 서버 2등 취급**: 콘텐츠 격차 6개월 = 이탈 가속, 1년 = 회복 불가
+- **IP 과용 자기잠식**: TERA IP 5종 동시 → 전부 종료, 라이온하트 오딘→발할라 동일 패턴 반복
+- **소형 스튜디오의 라이브서비스 부하**: 월 업데이트 1회 유지 불가한 팀 규모에서 가챠 라이브서비스는 구조적으로 불가능
+- **스포츠 IP 연간 리셋 딜레마**: EA가 2024년 FC Mobile 리셋 정책 철회 = 실패 공식 인정
+- **블록체인/NFT 통합**: 재미를 대체하는 블록체인은 예외 없이 커뮤니티 반발 → 실패
+
+---
+
+## 파트 3 추가. 2차 분석에서 도출된 신규 법칙
+
+---
+
+### 법칙 11. 역발상 마케팅 — Last War의 $2B 증명
+
+> **"광고와 다른 게임입니다"를 공개적으로 밝히는 전략이 2024년 최대 마케팅 혁신임다.**
+
+Last War: Survival은 퍼즐 광고로 유입 → 실제 4X SLG를 보여주는 역발상 전략으로 1년 만에 $2B 달성.
+- 초기 1성 리뷰 폭탄 → 역으로 바이럴
+- Antony Starr(호멜랜더) 셀럽 광고 추가 → Q4 2024 미국 다운로드 1위
+- **교훈**: 마케팅 크리에이티브 혁신은 게임 품질만큼 중요한 독립 변수임다
+
+---
+
+### 법칙 12. 소셜 카지노의 구조적 내구성
+
+> **소셜 카지노 장르는 13년+ 동안 연간 수백억 달러를 유지하는 독특한 내구성을 보임다.**
+
+| 게임명 | 출시 | 2024년 연 수익 |
+|--------|------|---------------|
+| Slotomania | 2011 | ~$500M |
+| Bingo Blitz | 2012 | ~$600M |
+| Jackpot Party Casino | 2012 | ~$400M |
+| Coin Master | 2016 | ~$1.2B |
+
+**이유**: 중장년 여성 유저의 낮은 이탈률 + 진입 경쟁자 적음 + 도박 규제가 역으로 진입 장벽 역할
+
+---
+
+### 법칙 13. 자기잠식(Cannibalization) — 파생 게임의 함정
+
+> **같은 IP로 후속·파생 게임을 출시하면 원작 유저를 이동시킬 뿐 총량이 늘지 않는다.**
+
+- Punishing: Gray Raven → Wuthering Waves 출시 후 기존 유저 대규모 이탈
+- Seven Knights → Seven Knights 2 → Seven Knights Idle → Seven Knights Re:Birth (4종 연속)
+- TERA IP 5종 동시 운영 → 전부 종료
+- **교훈**: 신작 출시 전 "이 유저들이 새 게임으로 이동할 것인가, 새 유저를 데려올 것인가"를 반드시 검증임다
+
+---
+
+### 법칙 14. 배틀로얄 윈도우는 닫혔다
+
+> **2019년 이후 출시한 신규 배틀로얄 게임 중 지속 성공한 사례가 사실상 없다.**
+
+| 출시 | 게임명 | 결과 |
+|------|--------|------|
+| 2022 | Rumbleverse | 6개월 종료 |
+| 2021~2023 | Knockout City | 2년 종료 |
+| 2020~2022 | Spellbreak | 인수 후 즉시 종료 |
+| 2020 | Crucible | 6개월 종료 |
+
+**이유**: PUBG Mobile + Fortnite + Free Fire + CoD Mobile이 각 시장을 이미 분할 점거. 신규 진입 시 커뮤니티 임계점 도달 불가.
+
+---
+
+### 법칙 15. 스포츠 IP 연간 리셋의 실패
+
+> **EA가 2024년 FC Mobile의 연간 리셋 정책을 공식 철회한 것은 "연간 리셋 = 실패 모델"임을 스스로 인정한 것임다.**
+
+연간 리셋 모델의 문제:
+1. 과금 유저에게 매년 재과금을 강요하는 구조
+2. 장기 투자(영웅/아이템 강화)에 대한 의욕 소멸
+3. "어차피 내년에 리셋"이라는 심리 → 신규 유저 유입 저하
+
+**교훈**: 장기 성장 가능성이 없는 게임에 유저는 과금하지 않는다.
+
+---
+
 ## 파트 4. 핵심 수치 요약
 
 ### 역대 최고 수익 게임
