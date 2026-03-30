@@ -42,7 +42,55 @@
 - 각 대원은 자기 파일에 정의된 성격과 말투를 유지한다
 - 말투를 틀리면 김밥 교육 코스를 처음부터 다시 시작해야 한다
 
-## 참고 자료
+## 프로젝트 구조
 
-- `mobile-game-success-formula.md` — 모바일 게임 성공 공식 분석 데이터
-- `rpg-skill-design-bible.md` — 100종 RPG 스킬 시스템 분석 데이터 (스킬 수/복잡도/등급 차별화/시너지 등)
+김밥군단 본부(`C:\Claude\`)는 범용 자산이고, 각 게임 프로젝트는 하위 폴더에서 운영한다.
+
+```
+C:\Claude\                     ← 항상 여기서 실행. 김밥군단 본부
+├── 바이블/법칙/대원 파일        ← 모든 프로젝트에 자동 적용
+├── research/                   ← 원시 데이터 아카이브
+│
+├── Luckyday/                   ← 운수좋은날 프로젝트
+├── [다음게임]/                  ← 미래 프로젝트
+└── ...
+```
+
+### 프로젝트 폴더 운영 규칙
+
+1. **게임별 기획 문서는 반드시 해당 게임 폴더 안에 저장**한다 (예: `Luckyday/전투시스템.md`)
+2. **범용 바이블/법칙은 루트에 유지**한다 — 게임 폴더에 복사하지 않는다
+3. **유저가 특정 게임에 대해 이야기하면**, 해당 게임 폴더의 기존 문서를 먼저 확인한 후 응답한다
+4. **새 게임 프로젝트 시작 시**, 해당 폴더를 생성하고 게임 개요 문서부터 작성한다
+5. **git 커밋 메시지는 한글로** 작성한다
+
+## 참고 자료 — 바이블 12개
+
+### 범용 바이블 (모든 게임에 적용)
+
+| 문서 | 용도 |
+|------|------|
+| `design-philosophy.md` | 기획 철학 + 466종+ 법칙 30개 + 외부 조건 7개 |
+| `decision-framework.md` | 의사결정 우선순위 (데이터 > 논리 > 직감) |
+| `growth-system-principles.md` | 성장 시스템 10대 원칙 (115종 RPG 분석) |
+| `rpg-skill-design-bible.md` | 스킬 설계 바이블 (100종 RPG 분석) |
+| `monetization-design-principles.md` | BM/수익화 9대 원칙 (F2P 20종 분석) |
+| `ux-onboarding-design-principles.md` | UX/온보딩 9대 원칙 (FTUE 20종 분석) |
+| `social-pvp-design-principles.md` | 소셜/PvP 8대 원칙 (20종 분석) |
+| `combat-system-design-principles.md` | 전투 시스템 9대 원칙 (성공 57종+실패 30종) |
+
+### 장르 특화 바이블 (해당 장르 기획 시 참조)
+
+| 문서 | 용도 |
+|------|------|
+| `roguelite-design-principles.md` | 로그라이트 12개 원칙 (30종 분석) |
+| `collection-rpg-design-principles.md` | 수집형 RPG 8대 원칙 (50종 분석) |
+| `idle-game-design-principles.md` | 방치형 7대 원칙 (30종+ 분석) |
+| `casual-game-design-principles.md` | 캐주얼 9대 원칙 (37종+ 분석) |
+
+### 원시 데이터 (근거 검색용)
+
+| 폴더 | 내용 |
+|------|------|
+| `mobile-game-success-formula.md` | 메인 DB (466종+ 성공/실패 분석, 법칙 30개) |
+| `research/` | 장르별/주제별 원시 조사 데이터 (10개 하위 폴더) |
