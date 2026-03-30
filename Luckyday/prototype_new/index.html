@@ -1,0 +1,648 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>운수좋은날</title>
+    <link rel="stylesheet" href="styles.css?v=13" />
+    <link rel="stylesheet" href="override.css?v=31" />
+  </head>
+  <body>
+    <div class="bg">
+      <div class="grain" aria-hidden="true"></div>
+      <div class="glow g1" aria-hidden="true"></div>
+      <div class="glow g2" aria-hidden="true"></div>
+    </div>
+
+    <main class="app">
+      <!-- MOBILE TOP BAR -->
+      <header class="m-topbar">
+        <div class="m-topbar__left">
+          <span class="m-round" id="turnText">턴 1</span>
+        </div>
+        <div class="m-topbar__center">
+          <span id="chapter" class="m-chip">1</span>
+          <span class="m-chip-sep">-</span>
+          <span id="stage" class="m-chip">1 / 10</span>
+        </div>
+        <div class="m-topbar__right">
+          <span id="enemyName" class="m-enemy-name">-</span>
+        </div>
+      </header>
+
+      <!-- BATTLE SCENE -->
+      <section class="m-battle journey" id="journey" aria-label="여정">
+        <div id="skillIconHud" class="skill-icon-hud"></div>
+        <div class="m-battle__field">
+          <!-- Hero -->
+          <div class="m-char m-char--hero journey__hero" id="journeyHero">
+            <img src="Images/dudu.png" class="m-char__img" alt="두두" />
+            <div class="m-char__name" id="journeyHeroName">두두</div>
+            <div class="m-char__hp">
+              <div class="bar__track bar__track--hero">
+                <div class="bar__fill" id="playerHpBar"></div>
+              </div>
+              <div class="m-char__hp-text" id="playerBattleHpText">100 / 100</div>
+            </div>
+            <div class="m-char__status" id="playerStatusRow" aria-label="상태이상"></div>
+            <div class="m-char__buffs" id="heroBuffRow" aria-label="버프"></div>
+            <div class="journeyHud" id="journeyHeroHud" aria-hidden="true">
+              <div class="journeyChip journeyChip--extra" id="journeyHeroExtra" hidden>추가타</div>
+              <div class="journeyChip journeyChip--status" id="journeyHeroStatus" hidden>상태이상</div>
+            </div>
+          </div>
+
+          <!-- Enemy -->
+          <div class="m-char m-char--enemy journey__enemy" id="journeyEnemy">
+            <div class="m-atk-counter" id="enemyAtkCounter">2</div>
+            <img id="enemyIcon" class="m-char__img" src="" alt="" />
+            <div class="m-char__name" id="journeyEnemyName">-</div>
+            <div class="m-char__hp">
+              <div class="bar__track bar__track--enemy">
+                <div class="bar__fill bar__fill--enemy" id="enemyHpBar"></div>
+              </div>
+              <div class="m-char__hp-text" id="enemyHpText">-</div>
+            </div>
+            <div class="m-char__status" id="enemyStatusRow" aria-label="상태이상"></div>
+            <div class="m-char__buffs" id="enemyBuffRow" aria-label="디버프"></div>
+            <div class="journeyHud" id="journeyEnemyHud" aria-hidden="true">
+              <div class="journeyChip journeyChip--extra" id="journeyEnemyExtra" hidden>추가타</div>
+              <div class="journeyChip journeyChip--status" id="journeyEnemyStatus" hidden>상태이상</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- PLAYER INFO BAR -->
+      <div class="m-info-bar">
+        <div class="m-info-bar__hp">
+          <span class="m-info-bar__label">HP</span>
+          <span id="playerHpText">100 / 100</span>
+        </div>
+        <div class="m-info-bar__atk">
+          <span class="m-info-bar__label">⚔</span>
+          <span id="playerAtkDisplay">10</span>
+        </div>
+        <div class="m-info-bar__gold">
+          <span id="gold">0</span>G
+        </div>
+        <button class="m-info-bar__menu" id="helpBtn" type="button" aria-label="Help">☰</button>
+      </div>
+
+      <!-- SCOREBOARD (전광판) -->
+      <div class="scoreboard" id="scoreboard">
+        <!-- Row 1: Decoration Icons + Combo (우) -->
+        <div class="sb__top">
+          <div class="sb__sparkles" id="sbSparkles"></div>
+          <div class="sb__decos" id="sbDecos"></div>
+          <div class="sb__combo" id="sbCombo">
+            <span class="sb__comboNum" id="sbComboNum">0</span>
+            <span class="sb__comboLabel">COMBO</span>
+          </div>
+        </div>
+        <!-- Row 2: Element Damages -->
+        <div class="sb__damages" id="sbDamages">
+          <div class="sb__elem sb__elem--fire" id="sbFire">
+            <span class="sb__elemDot"></span>
+            <span class="sb__elemVal" id="sbFireVal">0</span>
+          </div>
+          <div class="sb__elem sb__elem--light" id="sbLight">
+            <span class="sb__elemDot"></span>
+            <span class="sb__elemVal" id="sbLightVal">0</span>
+          </div>
+          <div class="sb__elem sb__elem--nature" id="sbNature">
+            <span class="sb__elemDot"></span>
+            <span class="sb__elemVal" id="sbNatureVal">0</span>
+          </div>
+          <div class="sb__elem sb__elem--water" id="sbWater">
+            <span class="sb__elemDot"></span>
+            <span class="sb__elemVal" id="sbWaterVal">0</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- SLOT BOARD -->
+      <section class="m-board">
+        <div class="gridWrap" id="gridWrap">
+          <svg class="fx" id="fx" aria-hidden="true"></svg>
+          <div class="talismanLayer" id="talismanLayer" aria-hidden="true"></div>
+          <div class="fxToast" id="fxToast" aria-hidden="true"></div>
+          <div class="grid" id="grid" role="grid" aria-label="슬롯 그리드"></div>
+        </div>
+      </section>
+
+      <!-- CONTROLS -->
+      <div class="m-controls">
+        <button class="m-btn m-btn--pet" id="petSkillBtn" type="button">
+          <span class="m-btn__icon">🐾</span>
+        </button>
+        <button class="m-btn m-btn--spin" id="spinBtn" type="button">
+          <span class="m-btn__main">Spin!</span>
+          <span class="m-btn__sub" id="spinModeLabel"></span>
+        </button>
+        <button class="m-btn m-btn--pet" id="petSkillBtn2" type="button">
+          <span class="m-btn__icon">🐾</span>
+        </button>
+      </div>
+      <div class="evoHud" id="evoHud" hidden></div>
+
+      <!-- READOUT -->
+      <div class="m-readout">
+        <div class="m-readout__item">
+          <span class="m-readout__label" data-i18n="ui.readoutSpin">피해</span>
+          <span id="spinDamage">0</span>
+        </div>
+        <div class="m-readout__item">
+          <span class="m-readout__label" data-i18n="ui.readoutChecks">체크</span>
+          <span id="spinChecks">0</span>
+        </div>
+        <div class="m-readout__item">
+          <span class="m-readout__label" data-i18n="ui.readoutJackpot">잭팟</span>
+          <span id="jackpotText">아니오</span>
+        </div>
+      </div>
+
+      <!-- XP BAR -->
+      <footer class="m-xpbar">
+        <span class="m-xpbar__lv">LV.<span id="level">1</span></span>
+        <div class="m-xpbar__track">
+          <div class="m-xpbar__fill" id="xpBarFill"></div>
+        </div>
+        <span class="m-xpbar__text" id="xp">0 / 50</span>
+      </footer>
+
+      <!-- HIDDEN: game.js compatibility (elements must exist but don't need to be visible) -->
+      <div class="m-hidden" style="display:none">
+        <div id="playerPanel">
+          <div id="playerName">두두</div>
+          <div id="playerStats"></div>
+          <div id="symbolOdds"></div>
+          <div id="skills"></div>
+        </div>
+        <div id="enemyPanel">
+          <svg id="enemyFx"></svg>
+          <div id="enemyStats"></div>
+          <div id="log" aria-live="polite"></div>
+        </div>
+        <div id="petSkillInfo"></div>
+        <button id="codexBtnWide"></button>
+        <button id="previewBtn"></button>
+        <button id="resetBtn"></button>
+      </div>
+    </main>
+
+    <canvas id="fireworksCanvas" class="fireworks-canvas" aria-hidden="true"></canvas>
+
+    <div class="startScreen" id="startScreen" role="dialog" aria-modal="true" aria-labelledby="startTitle">
+        <div class="lobby">
+          <!-- HERO BANNER -->
+          <div class="startScreen__hero">
+            <div class="startScreen__banner">
+              <img class="startScreen__charArt" src="Images/title_image.png" alt="두두와 김밥군단" />
+              <img class="startScreen__logoArt" src="Images/title_text.png" alt="One Lucky Day" />
+            </div>
+            <!-- Language selector -->
+            <div class="startScreen__langRow" id="langButtons">
+              <button class="langBtn langBtn--active" data-lang="ko" type="button">한국어</button>
+              <button class="langBtn" data-lang="zh" type="button">中文</button>
+            </div>
+            <button class="btn btn--ghost btn--tiny startScreen__reset" id="resetMetaBtn" type="button" data-i18n="ui.resetMeta">데이터 초기화</button>
+          </div>
+
+          <!-- ACCOUNT TOP BAR -->
+          <div class="lobby__topBar">
+            <div class="lobby__topItem">
+              <span class="lobby__topIcon">⭐</span>
+              <span>Lv.<span id="accountLevelText">0</span></span>
+            </div>
+            <div class="lobby__topItem">
+              <span class="lobby__topIcon">🪙</span>
+              <span id="goldText">0</span>
+            </div>
+            <div class="lobby__topHint" id="levelUpHint"></div>
+          </div>
+
+          <!-- TAB CONTENT AREA -->
+          <div class="lobby__content">
+
+            <!-- TAB: 상점 -->
+            <div class="lobby__panel" data-tab="shop">
+              <section class="menuCard">
+                <div class="menuCard__title" data-i18n="ui.gachaPet">펫 뽑기</div>
+                <div class="menuCard__actions">
+                  <button class="btn" id="petDrawBtn" type="button">1뽑 (1G)</button>
+                  <button class="btn" id="petDraw10Btn" type="button">10뽑 (10G)</button>
+                </div>
+                <div class="petDrawResult" id="petDrawResult"></div>
+              </section>
+              <!-- 교환소는 내 정보 > 펫 탭으로 이동 -->
+              <section class="menuCard">
+                <div class="menuCard__title" data-i18n="ui.gachaDeco">추억장식 뽑기</div>
+                <div class="menuCard__actions">
+                  <button class="btn" id="decoDrawBtn" type="button">1뽑 (2G)</button>
+                  <button class="btn" id="decoDraw10Btn" type="button">10뽑 (20G)</button>
+                </div>
+                <div class="decoDrawResult" id="decoDrawResult"></div>
+              </section>
+              <section class="menuCard">
+                <div class="menuCard__title" data-i18n="ui.gachaEquip">장비 뽑기</div>
+                <div class="menuCard__actions">
+                  <button class="btn" id="equipDrawBtn" type="button">1뽑 (2G)</button>
+                  <button class="btn" id="equipDraw10Btn" type="button">10뽑 (20G)</button>
+                </div>
+              </section>
+            </div>
+
+            <!-- TAB: 성장 -->
+            <div class="lobby__panel" data-tab="growth">
+              <div class="growth__center">
+                <div class="growth__levelBig">Lv.<span id="growthLevelText">0</span></div>
+                <div class="growth__hint" id="growthLevelHint"></div>
+                <button class="btn btn--start growth__levelUpBtn" id="levelUpBtn" type="button" data-i18n="ui.levelUpMeta">레벨업</button>
+              </div>
+            </div>
+
+            <!-- TAB: 모험 (기본 활성) -->
+            <div class="lobby__panel lobby__panel--active" data-tab="adventure">
+              <section class="menuCard menuCard--chapter" aria-label="Chapter">
+                <div class="menuCard__title" data-i18n="ui.chapterSelect">챕터 선택</div>
+                <div class="startScreen__chapterRow">
+                  <button class="btn btn--ghost" id="chapterPrevBtn" type="button">◀</button>
+                  <div class="startScreen__chapterText" id="chapterSelectText">1</div>
+                  <button class="btn btn--ghost" id="chapterNextBtn" type="button">▶</button>
+                </div>
+                <div class="chapterTheme" aria-label="Chapter Theme">
+                  <div class="chapterTheme__k" data-i18n="ui.chapterTheme">테마</div>
+                  <div class="chapterTheme__v" id="chapterThemeText">-</div>
+                </div>
+                <div class="chapterTrait" aria-label="Chapter Trait">
+                  <div class="chapterTrait__k" data-i18n="ui.chapterTrait">공통 특성</div>
+                  <div class="chapterTrait__name" id="chapterTraitName">-</div>
+                  <div class="chapterTrait__desc" id="chapterTraitDesc">-</div>
+                  <div class="chapterTrait__counter" id="chapterTraitCounter"></div>
+                </div>
+                <div class="bossPassives" aria-label="Boss Passives">
+                  <div class="bossPassives__k" data-i18n="ui.finalBossPassives">최종 보스 패시브</div>
+                  <div class="bossPassives__list" id="bossPassivesList"></div>
+                </div>
+                <div class="menuCard__actions">
+                  <button class="btn btn--start" id="startGameBtn" type="button">시작</button>
+                </div>
+              </section>
+            </div>
+
+            <!-- TAB: 내 정보 -->
+            <div class="lobby__panel" data-tab="myinfo">
+              <!-- Sub-tabs -->
+              <nav class="myinfo__tabs" id="myinfoTabs">
+                <button class="myinfo__tab" data-subtab="equip" type="button" data-i18n="ui.tabEquip">장비</button>
+                <button class="myinfo__tab myinfo__tab--active" data-subtab="pet" type="button" data-i18n="ui.tabPet">펫</button>
+                <button class="myinfo__tab" data-subtab="memento" type="button" data-i18n="ui.tabMemento">추억장식</button>
+              </nav>
+
+              <!-- Sub-panel: 장비 -->
+              <div class="myinfo__panel" data-subtab="equip">
+                <nav class="equipInnerTabs" id="equipInnerTabs">
+                  <button class="equipInnerTabs__btn equipInnerTabs__btn--active" data-equiptab="list" type="button" data-i18n="ui.equipList">장비목록</button>
+                  <button class="equipInnerTabs__btn" data-equiptab="merge" type="button" data-i18n="ui.equipMerge">합성</button>
+                </nav>
+
+                <div class="equipInnerPanel equipInnerPanel--active" data-equiptab="list">
+                  <div class="equipSlots">
+                    <div class="equipSlots__title" data-i18n="ui.equipEquipped">장착 중</div>
+                    <div class="equipSlots__layout">
+                      <div class="equipSlots__column">
+                        <div class="equipSlot" id="equipSlot0"><div class="equipSlot__empty" data-i18n="ui.slotWeapon">무기</div></div>
+                        <div class="equipSlot" id="equipSlot1"><div class="equipSlot__empty" data-i18n="ui.slotNecklace">목걸이</div></div>
+                        <div class="equipSlot" id="equipSlot2"><div class="equipSlot__empty" data-i18n="ui.slotEarring">귀걸이</div></div>
+                      </div>
+                      <div class="equipSlots__hero">
+                        <img src="Images/dudu.png" class="equipSlots__heroImg" alt="두두" />
+                      </div>
+                      <div class="equipSlots__column">
+                        <div class="equipSlot" id="equipSlot3"><div class="equipSlot__empty" data-i18n="ui.slotArmor">갑옷</div></div>
+                        <div class="equipSlot" id="equipSlot4"><div class="equipSlot__empty" data-i18n="ui.slotGloves">장갑</div></div>
+                        <div class="equipSlot" id="equipSlot5"><div class="equipSlot__empty" data-i18n="ui.slotShoes">신발</div></div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="equipGrid__header">
+                    <div class="equipGrid__title" data-i18n="ui.equipOwned">?? ??</div>
+                    <button class="btn btn--ghost equipGrid__autoBtn" id="equipAutoBtn" type="button">?? ??</button>
+                  </div>
+                  <div class="equipGrid" id="equipGrid"></div>
+                </div>
+
+                <div class="equipInnerPanel" data-equiptab="merge">
+                  <div class="equipMerge" id="equipMerge">
+                    <div class="equipMerge__title" data-i18n="ui.equipMergeTitle">장비 합성</div>
+                    <div class="equipMerge__targetArea" id="equipMergeTarget">
+                      <div class="equipMerge__hint" data-i18n="ui.equipMergeHint">합성할 장비를 선택하세요</div>
+                    </div>
+                    <div class="equipMerge__materials" id="equipMergeMaterials"></div>
+                    <div class="equipMerge__result" id="equipMergeResult"></div>
+                    <button class="btn equipMerge__btn" id="equipMergeBtn" type="button" disabled data-i18n="ui.equipMergeBtn">합성하기</button>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Sub-panel: 펫 -->
+              <div class="myinfo__panel myinfo__panel--active" data-subtab="pet">
+                <!-- 펫 내부 탭 -->
+                <nav class="petInnerTabs" id="petInnerTabs">
+                  <button class="petInnerTabs__btn petInnerTabs__btn--active" data-pettab="list" type="button" data-i18n="ui.petList">보유 펫</button>
+                  <button class="petInnerTabs__btn" data-pettab="synth" type="button" data-i18n="ui.petSynth">합성</button>
+                  <button class="petInnerTabs__btn" data-pettab="craft" type="button" data-i18n="ui.petCraft">제작</button>
+                  <button class="petInnerTabs__btn" data-pettab="exchange" type="button" data-i18n="ui.petExchange">교환소</button>
+                </nav>
+
+                <!-- 펫 내부: 보유 펫 -->
+                <div class="petInnerPanel petInnerPanel--active" data-pettab="list">
+                  <!-- 출전 펫 슬롯 -->
+                  <div class="petSlots">
+                    <div class="petSlots__title" data-i18n="ui.petDeployed">출전 중</div>
+                    <div class="petSlots__row">
+                      <div class="petSlot" id="petSlot0">
+                        <div class="petSlot__empty" data-i18n="ui.emptySlot">빈 슬롯</div>
+                      </div>
+                      <div class="petSlot" id="petSlot1">
+                        <div class="petSlot__empty" data-i18n="ui.emptySlot">빈 슬롯</div>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- 펫 목록 그리드 -->
+                  <div class="petGrid__title" data-i18n="ui.petOwned">보유 펫</div>
+                  <div class="petGrid" id="petGrid"></div>
+                </div>
+
+                <!-- 펫 내부: 합성 -->
+                <div class="petInnerPanel" data-pettab="synth">
+                  <div class="petSynthesis" id="petSynthesis">
+                    <div class="petSynthesis__title" data-i18n="ui.petSynthTitle">펫 합성</div>
+                    <nav class="petSynthesis__tabs" id="synthesisTabs">
+                      <button class="petSynthesis__tab petSynthesis__tab--active" data-synth="C" type="button">C→B (4마리)</button>
+                      <button class="petSynthesis__tab" data-synth="B" type="button">B→A (3마리)</button>
+                      <button class="petSynthesis__tab" data-synth="A" type="button">A→S (2마리)</button>
+                    </nav>
+                    <div class="petSynthesis__slots" id="synthesisSlots"></div>
+                    <div class="petSynthesis__result" id="synthesisResult"></div>
+                    <button class="btn petSynthesis__btn" id="synthesisBtn" type="button" disabled>합성하기</button>
+                  </div>
+                </div>
+
+                <!-- 펫 내부: 제작 -->
+                <div class="petInnerPanel" data-pettab="craft">
+                  <div class="petCraft" id="petCraft">
+                    <div class="petCraft__title" data-i18n="ui.petCraftTitle">SS 제작</div>
+                    <div class="petCraft__list" id="craftList"></div>
+                  </div>
+                </div>
+
+                <!-- 펫 내부: 교환소 -->
+                <div class="petInnerPanel" data-pettab="exchange">
+                  <div class="petShop" id="petShopPanel">
+                    <div class="petCraft__title" data-i18n="ui.petExchangeTitle">펫 교환소</div>
+                    <div class="petShop__foodBalance">펫먹이: <span id="petFoodText2">0</span></div>
+                    <div class="petShop__list" id="petShopList"></div>
+                  </div>
+                </div>
+
+                <!-- 기존 petList는 hidden으로 유지 (호환성) -->
+                <div id="petList" style="display:none"></div>
+                <div id="petEquippedText" style="display:none"></div>
+              </div>
+
+              <!-- Sub-panel: 추억장식 -->
+              <div class="myinfo__panel" data-subtab="memento">
+                <!-- 장착 슬롯 (4개) -->
+                <div class="decoSlots">
+                  <div class="decoSlots__title" data-i18n="ui.decoEquipped">장착 중</div>
+                  <div class="decoSlots__hint" data-i18n="ui.decoHint">합배율은 왼쪽, 곱배율은 오른쪽이 유리!</div>
+                  <div class="decoSlots__row" id="decoSlotsRow">
+                    <div class="decoSlot" id="decoSlot0"><div class="decoSlot__empty" data-i18n="ui.emptySlot">빈 슬롯</div></div>
+                    <div class="decoSlot" id="decoSlot1"><div class="decoSlot__empty" data-i18n="ui.emptySlot">빈 슬롯</div></div>
+                    <div class="decoSlot" id="decoSlot2"><div class="decoSlot__empty" data-i18n="ui.emptySlot">빈 슬롯</div></div>
+                    <div class="decoSlot" id="decoSlot3"><div class="decoSlot__empty" data-i18n="ui.emptySlot">빈 슬롯</div></div>
+                  </div>
+                </div>
+                <!-- 보유 목록 -->
+                <div class="decoGrid__title" data-i18n="ui.decoOwned">보유 장식</div>
+                <div class="decoGrid" id="decoGrid"></div>
+              </div>
+            </div>
+
+            <!-- TAB: 이벤트 -->
+            <div class="lobby__panel" data-tab="event">
+              <section class="menuCard">
+                <div class="lobby__placeholder">
+                  <div class="lobby__placeholderIcon">🏰</div>
+                  <div class="lobby__placeholderText" data-i18n="ui.preparing">준비 중</div>
+                  <div class="lobby__placeholderSub" data-i18n="ui.eventSoon">이벤트 던전이 추가될 예정입니다</div>
+                </div>
+              </section>
+            </div>
+
+          </div>
+
+          <!-- BOTTOM NAVIGATION -->
+          <nav class="lobby__nav" id="lobbyNav">
+            <button class="lobby__navBtn" data-tab="shop" type="button">
+              <span class="lobby__navIcon">🏪</span>
+              <span class="lobby__navLabel" data-i18n="ui.navShop">상점</span>
+            </button>
+            <button class="lobby__navBtn" data-tab="growth" type="button">
+              <span class="lobby__navIcon">⚔️</span>
+              <span class="lobby__navLabel" data-i18n="ui.navGrowth">성장</span>
+            </button>
+            <button class="lobby__navBtn lobby__navBtn--active" data-tab="adventure" type="button">
+              <span class="lobby__navIcon">🗺️</span>
+              <span class="lobby__navLabel" data-i18n="ui.navAdventure">모험</span>
+            </button>
+            <button class="lobby__navBtn" data-tab="myinfo" type="button">
+              <span class="lobby__navIcon">🎒</span>
+              <span class="lobby__navLabel" data-i18n="ui.navMyinfo">내 정보</span>
+            </button>
+            <button class="lobby__navBtn" data-tab="event" type="button">
+              <span class="lobby__navIcon">🏰</span>
+              <span class="lobby__navLabel" data-i18n="ui.navEvent">이벤트</span>
+            </button>
+          </nav>
+        </div>
+      </div>
+
+    <!-- EQUIPMENT DETAIL POPUP -->
+    <div class="modal" id="equipDetailModal" aria-hidden="true">
+      <div class="modal__card equipDetail" role="dialog" aria-modal="true" aria-labelledby="equipDetailName">
+        <button class="btnIcon equipDetail__close" id="equipDetailCloseBtn" type="button" aria-label="닫기">✕</button>
+        <div class="equipDetail__header" id="equipDetailHeader"></div>
+        <div class="equipDetail__passives" id="equipDetailPassives"></div>
+        <div class="equipDetail__actions" id="equipDetailActions"></div>
+      </div>
+    </div>
+
+    <!-- PET DETAIL POPUP -->
+    <div class="modal" id="petDetailModal" aria-hidden="true">
+      <div class="modal__card petDetail" role="dialog" aria-modal="true" aria-labelledby="petDetailName">
+        <button class="btnIcon petDetail__close" id="petDetailCloseBtn" type="button" aria-label="닫기">✕</button>
+        <div class="petDetail__header">
+          <div class="petDetail__iconWrap" id="petDetailIconWrap"></div>
+          <div class="petDetail__info">
+            <div class="petDetail__badges">
+              <span class="petDetail__grade" id="petDetailGrade">B</span>
+              <span class="petDetail__element" id="petDetailElement"></span>
+              <span class="petDetail__tag" id="petDetailTag"></span>
+            </div>
+            <div class="petDetail__name" id="petDetailName">-</div>
+            <div class="petDetail__enhance" id="petDetailEnhance">+0 / 2</div>
+          </div>
+        </div>
+        <!-- Stats -->
+        <div class="petDetail__stats" id="petDetailStats"></div>
+        <!-- Active Skill -->
+        <div class="petDetail__section">
+          <div class="petDetail__sectionTitle" data-i18n="ui.activeSkill">액티브 스킬</div>
+          <div class="petDetail__activeRow">
+            <span class="petDetail__activeName" id="petDetailActiveName">-</span>
+            <span class="petDetail__activeCd" id="petDetailCd">CD 8</span>
+          </div>
+          <div class="petDetail__activeDesc" id="petDetailActiveDesc">-</div>
+        </div>
+        <!-- Passives -->
+        <div class="petDetail__section">
+          <div class="petDetail__sectionTitle" data-i18n="ui.passive">패시브</div>
+          <div class="petDetail__passives" id="petDetailPassives"></div>
+        </div>
+        <!-- Enhancement Bar -->
+        <div class="petDetail__enhanceBar">
+          <div class="petDetail__enhanceLabel" id="petDetailEnhanceLabel">강화 0 / 2 · 보유 0마리</div>
+          <div class="petDetail__enhanceTrack">
+            <div class="petDetail__enhanceFill" id="petDetailEnhanceFill"></div>
+          </div>
+        </div>
+        <!-- Actions -->
+        <div class="petDetail__actions" id="petDetailActions"></div>
+      </div>
+    </div>
+
+    <!-- DECORATION DETAIL POPUP -->
+    <div class="modal" id="decoDetailModal" aria-hidden="true">
+      <div class="modal__card decoDetail" role="dialog" aria-modal="true" aria-labelledby="decoDetailName">
+        <button class="btnIcon decoDetail__close" id="decoDetailCloseBtn" type="button" aria-label="닫기">✕</button>
+        <div class="decoDetail__header">
+          <div class="decoDetail__iconWrap" id="decoDetailIconWrap"></div>
+          <div class="decoDetail__info">
+            <div class="decoDetail__badges">
+              <span class="decoDetail__grade" id="decoDetailGrade">A</span>
+              <span class="decoDetail__multBadge" id="decoDetailMultBadge" data-i18n="ui.decoMultMul">곱</span>
+            </div>
+            <div class="decoDetail__name" id="decoDetailName">-</div>
+            <div class="decoDetail__shortDesc" id="decoDetailShortDesc">-</div>
+          </div>
+        </div>
+        <div class="decoDetail__desc" id="decoDetailDesc">-</div>
+        <div class="decoDetail__actions" id="decoDetailActions"></div>
+      </div>
+    </div>
+
+    <div class="modal" id="modal" aria-hidden="true">
+      <div class="modal__card" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+        <div class="modal__kicker" id="modalKicker">레벨 업</div>
+        <div class="modal__title" id="modalTitle">스킬 1개 선택</div>
+        <img class="modal__art" id="modalArt" alt="" />
+        <div class="modal__message" id="modalMessage"></div>
+        <div id="symbolOddsBar" class="o-symbolOddsBar" aria-hidden="true"></div>
+        <div class="choices" id="choices"></div>
+        <div class="modal__hint" id="modalHint">하나를 클릭해서 획득합니다.</div>
+      </div>
+    </div>
+
+    <div class="modal" id="helpModal" aria-hidden="true">
+      <div class="modal__card modal__card--help" role="dialog" aria-modal="true" aria-labelledby="helpTitle">
+        <div class="modal__kicker" id="helpKicker">해결 순서</div>
+        <div class="modal__title" id="helpTitle">전투 타임라인</div>
+        <div class="modal__message" id="helpMessage"></div>
+        <ol class="helpSteps" id="helpSteps"></ol>
+        <div class="modal__hint" id="helpHint">ESC 또는 바깥을 클릭해서 닫기</div>
+        <div class="helpActions">
+          <button class="btn btn--ghost" id="helpCloseBtn" type="button" data-i18n="ui.runInfoClose">닫기</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal" id="codexModal" aria-hidden="true">
+      <div class="modal__card codex" role="dialog" aria-modal="true" aria-labelledby="codexTitle">
+        <div class="codex__header">
+          <div>
+            <div class="modal__kicker" id="codexKicker">스킬 도감</div>
+            <div class="modal__title" id="codexTitle">스킬 도감</div>
+          </div>
+          <button class="btnIcon codex__close" id="codexCloseBtn" type="button" aria-label="닫기">✕</button>
+        </div>
+
+        <nav class="codex__tabs" id="codexTabs" role="tablist" aria-label="스킬 속성 탭">
+          <button class="codex__tab" type="button" role="tab" data-tab="light" aria-selected="false" tabindex="-1">번개</button>
+          <button class="codex__tab" type="button" role="tab" data-tab="nature" aria-selected="false" tabindex="-1">자연</button>
+          <button class="codex__tab" type="button" role="tab" data-tab="fire" aria-selected="false" tabindex="-1">불</button>
+          <button class="codex__tab" type="button" role="tab" data-tab="water" aria-selected="false" tabindex="-1">물</button>
+          <button class="codex__tab" type="button" role="tab" data-tab="fusion" aria-selected="false" tabindex="-1">융합</button>
+          <button class="codex__tab" type="button" role="tab" data-tab="luck" aria-selected="false" tabindex="-1">행운</button>
+          <button class="codex__tab" type="button" role="tab" data-tab="common" aria-selected="false" tabindex="-1">공통</button>
+        </nav>
+
+        <div class="codex__body" id="codexBody" aria-label="스킬 목록">
+          <div class="codex__panel" data-panel="light" role="tabpanel">
+            <div class="skills" id="codexListLight"></div>
+          </div>
+          <div class="codex__panel" data-panel="nature" role="tabpanel" hidden>
+            <div class="skills" id="codexListNature"></div>
+          </div>
+          <div class="codex__panel" data-panel="fire" role="tabpanel" hidden>
+            <div class="skills" id="codexListFire"></div>
+          </div>
+          <div class="codex__panel" data-panel="water" role="tabpanel" hidden>
+            <div class="skills" id="codexListWater"></div>
+          </div>
+          <div class="codex__panel" data-panel="fusion" role="tabpanel" hidden>
+            <div class="skills" id="codexListFusion"></div>
+          </div>
+          <div class="codex__panel" data-panel="luck" role="tabpanel" hidden>
+            <div class="skills" id="codexListLuck"></div>
+          </div>
+          <div class="codex__panel" data-panel="common" role="tabpanel" hidden>
+            <div class="skills" id="codexListCommon"></div>
+          </div>
+        </div>
+
+        <div class="modal__hint codex__hint" id="codexHint">ESC 또는 바깥을 클릭해서 닫기</div>
+      </div>
+    </div>
+
+    <!-- 통합 뽑기 결과 팝업 -->
+    <div class="modal" id="gachaModal" aria-hidden="true">
+      <div class="gachaPopup" role="dialog" aria-modal="true">
+        <div class="gachaPopup__title" id="gachaPopupTitle" data-i18n="ui.gachaResult">뽑기 결과</div>
+        <div class="gachaPopup__grid" id="gachaPopupGrid"></div>
+        <div class="gachaPopup__hint" data-i18n="ui.tapToClose">탭하여 닫기</div>
+      </div>
+    </div>
+
+    <script src="data/text.js?v=12"></script>
+    <script src="data/enemies.js?v=3"></script>
+    <script src="data/passives.js?v=4"></script>
+    <script src="data/skills.js?v=7"></script>
+    <script src="data/pets.js?v=3"></script>
+    <script src="data/equipment.js?v=2"></script>
+    <script src="data/decorations.js?v=34"></script>
+
+    <script src="core.js?v=11"></script>
+    <script src="grid.js?v=13"></script>
+    <script src="entities.js?v=23"></script>
+    <script src="slot-manipulation.js?v=6"></script>
+    <script src="pet-passives.js?v=6"></script>
+    <script src="equipment-passives.js?v=1"></script>
+    <script src="combat.js?v=29"></script>
+    <script src="effects.js?v=22"></script>
+    <script src="spin.js?v=37"></script>
+    <script src="override.js?v=2"></script>
+  </body>
+</html>

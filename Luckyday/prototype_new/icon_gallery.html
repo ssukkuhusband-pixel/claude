@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title>Skill Icon Gallery</title>
+<style>
+body { background: #1a1a2e; color: #eee; font-family: sans-serif; padding: 20px; }
+h2 { color: #ff9; border-bottom: 1px solid #444; padding-bottom: 8px; }
+.grid { display: grid; grid-template-columns: repeat(auto-fill, 90px); gap: 8px; margin-bottom: 40px; }
+.item { text-align: center; background: #2a2a4a; border-radius: 8px; padding: 6px; }
+.item img { width: 64px; height: 64px; image-rendering: pixelated; }
+.item .label { font-size: 10px; color: #aaa; margin-top: 4px; }
+</style>
+</head>
+<body>
+<h2>skill_0000 ~ skill_0096 (97 icons)</h2>
+<div class="grid" id="g1"></div>
+<h2>skill_1001 ~ skill_1123 (1000-series)</h2>
+<div class="grid" id="g2"></div>
+<script>
+const g1 = document.getElementById('g1');
+for (let i = 0; i <= 96; i++) {
+  const num = String(i).padStart(4, '0');
+  g1.innerHTML += `<div class="item"><img src="images/skill_icons/skill_${num}.png" /><div class="label">${num}</div></div>`;
+}
+const g2 = document.getElementById('g2');
+const series1000 = [];
+for (let i = 1001; i <= 1123; i++) series1000.push(i);
+for (const i of series1000) {
+  const num = String(i);
+  g2.innerHTML += `<div class="item"><img src="images/skill_icons/skill_${num}.png" onerror="this.parentElement.style.display='none'" /><div class="label">${num}</div></div>`;
+}
+</script>
+</body>
+</html>

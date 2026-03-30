@@ -1,0 +1,2712 @@
+/* ═══════════════════════════════════════════════════════════════
+   override.css — 운수좋은날 게임 UI/UX 개선 (프로토 3)
+   기존 styles.css를 override. 기능 변경 없음.
+   ═══════════════════════════════════════════════════════════════ */
+
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700;900&display=swap');
+
+/* ─── body 기본 텍스트 색상 ─── */
+html, body { color: rgba(255, 245, 230, 0.88); }
+
+/* ─── 색상 토큰 업데이트 ─── */
+:root {
+  /* 배경: 다크 */
+  --bg0: #1a1614;
+  --bg1: #201c18;
+
+  /* 다크 테마용 변수 오버라이드 */
+  --ink: rgba(255, 245, 230, 0.88);
+  --muted: rgba(255, 245, 230, 0.55);
+  --faint: rgba(255, 245, 230, 0.06);
+  --line: rgba(255, 245, 230, 0.08);
+  --panel: rgba(255, 245, 230, 0.04);
+  --panel2: rgba(255, 245, 230, 0.06);
+  --card-bg: rgba(38, 32, 26, 0.98);
+  --log-note: rgba(255, 245, 230, 0.55);
+  --log-note-bg: rgba(255, 245, 230, 0.06);
+
+  /* 액센트: 더 진하고 풍성한 골드 */
+  --accent: #f5bc2e;
+  --accent2: #ff8c42;
+  --accent-glow: rgba(245, 188, 46, 0.35);
+
+  /* 새 토큰 */
+  --jade: #5ce8a0;
+  --jade-dim: rgba(92, 232, 160, 0.15);
+  --ruby: #ff5252;
+  --ruby-dim: rgba(255, 82, 82, 0.15);
+
+  /* 속성 색상 — 채도 up */
+  --fire:   #ff4f2b;
+  --light:  #ffe033;
+  --nature: #4de88a;
+  --water:  #30b5ff;
+
+  /* 타이포 */
+  --font-body: "Noto Sans KR", "Space Grotesk", ui-sans-serif, system-ui;
+  --font-num:  "Space Grotesk", monospace;
+}
+
+/* ─── 폰트 전역 적용 ─── */
+body {
+  font-family: var(--font-body);
+  color: rgba(255, 245, 230, 0.88);
+  background:
+    radial-gradient(ellipse 900px 400px at 15% 10%, rgba(245,188,46,0.06) 0%, transparent 65%),
+    radial-gradient(ellipse 700px 350px at 85% 25%, rgba(255,82,82,0.04) 0%, transparent 65%),
+    radial-gradient(ellipse 1000px 500px at 50% 90%, rgba(92,232,160,0.03) 0%, transparent 70%),
+    linear-gradient(165deg, var(--bg1) 0%, var(--bg0) 100%);
+}
+
+/* ─── grain을 좀 더 질감있게 ─── */
+.grain {
+  opacity: 0.03;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+}
+
+/* ══════════════════════════════════════
+   TOP BAR — FANTÔME 브랜드 + 턴 정보
+   ══════════════════════════════════════ */
+
+.m-topbar {
+  padding: 8px 14px;
+  background: rgba(255, 245, 230, 0.04);
+  border-bottom: 1px solid rgba(245, 188, 46, 0.12);
+  backdrop-filter: blur(12px);
+  position: relative;
+}
+
+/* FANTÔME 워터마크 로고 */
+.m-topbar::after {
+  content: '';
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 22px;
+  height: 22px;
+  opacity: 0.18;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 120'%3E%3Cpath d='M50 0 C22 0 0 22 0 50 L0 120 L16 105 L33 120 L50 105 L67 120 L84 105 L100 120 L100 50 C100 22 78 0 50 0Z' fill='%23f5bc2e'/%3E%3Ccircle cx='35' cy='48' r='8' fill='%230d0a0f'/%3E%3Ccircle cx='65' cy='48' r='8' fill='%230d0a0f'/%3E%3C/svg%3E");
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.m-round {
+  font-family: var(--font-num);
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--accent);
+  letter-spacing: 0.08em;
+  background: rgba(245, 188, 46, 0.1);
+  border: 1px solid rgba(245, 188, 46, 0.25);
+  border-radius: 6px;
+  padding: 2px 8px;
+}
+
+.m-chip {
+  font-family: var(--font-num);
+  background: rgba(255, 245, 230, 0.08);
+  border: 1px solid rgba(255, 245, 230, 0.12);
+  border-radius: 6px;
+  padding: 2px 8px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  color: rgba(255, 245, 230, 0.8);
+}
+
+.m-chip-sep {
+  color: rgba(255, 245, 230, 0.3);
+  font-size: 11px;
+}
+
+.m-enemy-name {
+  font-size: 11px;
+  font-weight: 700;
+  color: rgba(255, 100, 80, 0.9);
+  letter-spacing: 0.04em;
+}
+
+/* ══════════════════════════════════════
+   BATTLE SCENE — 축소 (패널에 공간 양보)
+   ══════════════════════════════════════ */
+
+.m-battle {
+  flex: 1 1 180px;
+  height: auto;
+  min-height: 120px;
+  max-height: 45vh;
+  padding: 6px 14px 4px;
+}
+
+.scoreboard {
+  flex-shrink: 0;
+}
+
+.sb__top,
+.sb__decos,
+.sb__damages {
+  flex-shrink: 0;
+}
+
+.m-char__img {
+  width: 64px;
+  height: 64px;
+  border-radius: 14px;
+  border-width: 2px;
+  image-rendering: pixelated;
+}
+
+/* 두두 이미지 — 골드 테두리 글로우 */
+.m-char--hero .m-char__img {
+  border-color: rgba(245, 188, 46, 0.55);
+  box-shadow:
+    0 0 10px rgba(245, 188, 46, 0.15),
+    0 3px 10px rgba(60, 42, 28, 0.12);
+}
+
+/* 적 이미지 — 레드 테두리 글로우 */
+.m-char--enemy .m-char__img {
+  border-color: rgba(255, 80, 60, 0.55);
+  box-shadow:
+    0 0 10px rgba(255, 80, 60, 0.15),
+    0 3px 10px rgba(60, 42, 28, 0.12);
+}
+
+/* HP bar — 두두 */
+.bar__fill {
+  background: linear-gradient(90deg, #4de88a, #a8f55e);
+  box-shadow: 0 0 8px rgba(77, 232, 138, 0.4);
+}
+
+/* HP bar — 적 */
+.bar__fill--enemy {
+  background: linear-gradient(90deg, #ff4f2b, #ff8c42);
+  box-shadow: 0 0 6px rgba(255, 79, 43, 0.4);
+}
+
+.m-char__hp .bar__track {
+  height: 7px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.m-char__name {
+  font-weight: 900;
+  font-size: 10px;
+  letter-spacing: 0.05em;
+  margin-top: 2px;
+  color: rgba(255, 245, 230, 0.85);
+}
+
+.m-char__hp .bar__track {
+  height: 5px;
+}
+
+/* 적 공격 카운터 배지 */
+.m-atk-counter {
+  position: absolute;
+  top: -12px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 6;
+  min-width: 32px;
+  max-width: 52px;
+  height: 24px;
+  padding: 0 8px;
+  border-radius: 999px;
+  background: linear-gradient(135deg, rgba(255, 110, 72, 0.98), rgba(204, 34, 17, 0.98));
+  border: 2px solid rgba(30, 26, 22, 0.92);
+  font-size: 12px;
+  font-weight: 900;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow:
+    0 4px 10px rgba(255, 79, 43, 0.32),
+    0 0 0 1px rgba(60, 42, 28, 0.08);
+  font-family: var(--font-num);
+  letter-spacing: -0.02em;
+  line-height: 1;
+  white-space: nowrap;
+}
+
+.m-char--enemy .m-char__img {
+  margin-top: 6px;
+}
+
+/* ══════════════════════════════════════
+   INFO BAR — HP/ATK/GOLD
+   ══════════════════════════════════════ */
+
+.m-info-bar {
+  background: rgba(255, 245, 230, 0.03);
+  border-top: 1px solid rgba(255, 245, 230, 0.05);
+  border-bottom: 1px solid rgba(255, 245, 230, 0.05);
+  padding: 5px 14px;
+}
+
+.m-info-bar__gold {
+  color: var(--accent);
+  font-family: var(--font-num);
+  font-weight: 900;
+  letter-spacing: 0.03em;
+}
+
+.m-info-bar__label {
+  color: rgba(255, 245, 230, 0.5);
+  font-size: 10px;
+  font-weight: 700;
+}
+
+/* ══════════════════════════════════════
+   SCOREBOARD (전광판) — 핵심 개선
+   ══════════════════════════════════════ */
+
+.scoreboard {
+  margin: 4px 0;
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: linear-gradient(
+    180deg,
+    rgba(32, 24, 18, 0.88) 0%,
+    rgba(26, 20, 14, 0.92) 100%
+  );
+  backdrop-filter: blur(14px);
+  box-shadow:
+    0 2px 24px rgba(10, 6, 2, 0.25),
+    inset 0 1px 0 rgba(255, 255, 255, 0.04);
+  padding: 6px 8px 8px;
+}
+
+/* Row 1: 장식 아이콘(가운데) + 콤보(우측 absolute) */
+.sb__top {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding-bottom: 6px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+}
+
+/* 장식 아이콘 행 */
+.sb__decos {
+  gap: 6px;
+  padding-bottom: 4px;
+  border-bottom: none;
+  min-height: unset;
+  flex: 1;
+}
+
+.sb__decoIcon {
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  border: 1.5px solid rgba(255, 255, 255, 0.14);
+  background: rgba(255, 255, 255, 0.06);
+  overflow: visible; /* ring pulse ::after가 아이콘 밖으로 나와야 함 */
+  transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease, opacity 0.2s ease;
+}
+
+/* overflow visible 상태에서 img는 자체적으로 클립 */
+.sb__decoIcon img {
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+/* PENDING: 어두운 대기 상태 */
+.sb__decoIcon--pending {
+  opacity: 0.4;
+  filter: grayscale(0.7);
+}
+
+/* ACTIVE: 발동! 좌우 wobble + 골드 플래시 */
+.sb__decoIcon--active {
+  border-color: rgba(245, 188, 46, 0.9);
+  box-shadow:
+    0 0 0 2px rgba(245, 188, 46, 0.35),
+    0 0 16px rgba(245, 188, 46, 0.55),
+    0 0 32px rgba(245, 188, 46, 0.2);
+  animation: sbDecoWobble 0.45s ease-out forwards;
+  z-index: 10;
+}
+
+/* 발동 시 ring pulse (파동) */
+.sb__decoIcon--active::after {
+  content: '';
+  position: absolute;
+  inset: -4px;
+  border-radius: 16px;
+  border: 2px solid rgba(245, 188, 46, 0.9);
+  pointer-events: none;
+  animation: decoRingPulse 0.5s ease-out forwards;
+}
+
+/* 좌우 흔들림 — 영역 안에서만 움직임 */
+@keyframes sbDecoWobble {
+  0%   { transform: scale(1)    rotate(0deg);    filter: brightness(1);   opacity: 0.6; }
+  18%  { transform: scale(1.12) rotate(-6deg);   filter: brightness(2.0); opacity: 1; }
+  38%  { transform: scale(1.1)  rotate(5deg);    filter: brightness(1.5); }
+  55%  { transform: scale(1.08) rotate(-2.5deg); filter: brightness(1.2); }
+  72%  { transform: scale(1.06) rotate(1deg);    filter: brightness(1.1); }
+  100% { transform: scale(1.05) rotate(0deg);    filter: brightness(1); }
+}
+
+@keyframes decoRingPulse {
+  0%   { inset: -4px;  opacity: 0.9; border-width: 2px; }
+  40%  { inset: -14px; opacity: 0.5; border-width: 1.5px; }
+  100% { inset: -26px; opacity: 0;   border-width: 1px; }
+}
+
+/* DIM: 완료 후 흐릿하게 */
+.sb__decoIcon--dim {
+  opacity: 0.3;
+  filter: grayscale(0.8);
+  transform: scale(0.92);
+}
+
+/* 합/곱 배지 */
+.sb__decoIcon__multBadge {
+  font-size: 8px;
+  font-weight: 900;
+  padding: 1px 4px;
+  border-radius: 4px;
+  bottom: -3px;
+  right: -3px;
+  letter-spacing: 0.02em;
+}
+
+.sb__decoIcon__multBadge--add {
+  background: rgba(48, 181, 255, 0.9);
+  box-shadow: 0 1px 4px rgba(48, 181, 255, 0.4);
+}
+
+.sb__decoIcon__multBadge--mult {
+  background: rgba(255, 140, 66, 0.9);
+  box-shadow: 0 1px 4px rgba(255, 140, 66, 0.4);
+}
+
+/* 트리거 레이블 (합/곱 값 팝업) — 속성 데미지 숫자 바로 위에 표시 */
+.sb__decoTriggerLabel {
+  position: absolute;
+  top: -6px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-family: var(--font-num);
+  font-size: 11px;
+  font-weight: 900;
+  padding: 2px 6px;
+  border-radius: 5px;
+  white-space: nowrap;
+  box-shadow: 0 1px 6px rgba(60, 42, 28, 0.15);
+  letter-spacing: 0.03em;
+  pointer-events: none;
+  z-index: 15;
+  animation: triggerLabelPop 0.7s ease-out forwards;
+}
+
+@keyframes triggerLabelPop {
+  0%   { transform: translateX(-50%) translateY(2px) scale(0.8); opacity: 0; }
+  10%  { transform: translateX(-50%) translateY(-6px) scale(1.03); opacity: 1; }
+  15%  { transform: translateX(-50%) translateY(-6px) scale(1); opacity: 1; }
+  75%  { transform: translateX(-50%) translateY(-6px) scale(1); opacity: 1; }
+  100% { transform: translateX(-50%) translateY(-4px) scale(0.95); opacity: 0; }
+}
+
+.sb__decoTriggerLabel--add {
+  background: rgba(48, 181, 255, 0.92);
+  box-shadow: 0 2px 8px rgba(48, 181, 255, 0.35);
+}
+
+.sb__decoTriggerLabel--mult {
+  background: rgba(255, 140, 66, 0.92);
+  box-shadow: 0 2px 8px rgba(255, 140, 66, 0.35);
+}
+
+/* 콤보 카운터 — sb__top 우측 absolute (장식 가운데정렬에 영향 안 줌) */
+.sb__combo {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: rgba(20, 14, 8, 0.70);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+
+.sb__comboNum {
+  font-family: var(--font-num);
+  font-size: 28px;
+  font-weight: 900;
+  color: rgba(255, 255, 255, 0.95);
+  letter-spacing: -0.02em;
+  line-height: 1;
+}
+
+.sb__comboLabel {
+  font-size: 7px;
+  font-weight: 900;
+  letter-spacing: 0.1em;
+  color: rgba(255, 255, 255, 0.55);
+  margin-top: 3px;
+}
+
+/* 콤보 범프 */
+@keyframes sbComboBump {
+  0%   { transform: scale(1);    color: rgba(255, 255, 255, 0.8); }
+  35%  { transform: scale(1.45); color: var(--accent); }
+  65%  { transform: scale(1.15); }
+  100% { transform: scale(1); }
+}
+
+/* 속성 데미지 행 */
+.sb__damages {
+  gap: 8px;
+  padding-top: 6px;
+  border-top: 1px solid rgba(255, 255, 255, 0.07);
+}
+
+.sb__elemVal {
+  font-family: var(--font-num);
+  font-size: 22px;
+  font-weight: 900;
+  letter-spacing: -0.01em;
+}
+
+.sb__elemDot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+}
+
+/* 속성별 데미지 색 */
+.sb__elem--fire .sb__elemVal  { color: rgba(255, 100, 60, 0.95); }
+.sb__elem--light .sb__elemVal { color: rgba(255, 228, 80, 0.95); }
+.sb__elem--nature .sb__elemVal{ color: rgba(100, 240, 155, 0.95); }
+.sb__elem--water .sb__elemVal { color: rgba(80, 200, 255, 0.95); }
+
+.sb__elem--fire .sb__elemDot  { background: #ff4f2b; box-shadow: 0 0 8px rgba(255,79,43,0.7); }
+.sb__elem--light .sb__elemDot { background: #ffe033; box-shadow: 0 0 8px rgba(255,224,51,0.7); }
+.sb__elem--nature .sb__elemDot{ background: #4de88a; box-shadow: 0 0 8px rgba(77,232,138,0.7); }
+.sb__elem--water .sb__elemDot { background: #30b5ff; box-shadow: 0 0 8px rgba(48,181,255,0.7); }
+
+/* 데미지 범프 */
+@keyframes sbDmgBump {
+  0%   { transform: scale(1); }
+  40%  { transform: scale(1.3); }
+  70%  { transform: scale(1.1); }
+  100% { transform: scale(1); }
+}
+
+/* 데미지 폭발 */
+@keyframes sbDmgExplode {
+  0%   { transform: scale(1) translateY(0);  filter: brightness(1); }
+  25%  { transform: scale(1.45) translateY(-4px); filter: brightness(1.8); }
+  60%  { transform: scale(1.15) translateY(-1px); filter: brightness(1.2); }
+  100% { transform: scale(1)    translateY(0);  filter: brightness(1); }
+}
+
+/* 스코어보드 플래시 */
+@keyframes sbFlash {
+  0%   { box-shadow: 0 2px 24px rgba(60,42,28,0.10), inset 0 1px 0 rgba(60,42,28,0.05); }
+  30%  { box-shadow: 0 0 0 4px rgba(245,188,46,0.45), 0 2px 40px rgba(245,188,46,0.2), inset 0 1px 0 rgba(60,42,28,0.08); border-color: rgba(245,188,46,0.45); }
+  65%  { box-shadow: 0 0 0 2px rgba(245,188,46,0.2), 0 2px 30px rgba(245,188,46,0.1); }
+  100% { box-shadow: 0 2px 24px rgba(60,42,28,0.10), inset 0 1px 0 rgba(60,42,28,0.05); }
+}
+
+/* 스파클 */
+.sb__sparkle {
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: var(--accent);
+  box-shadow: 0 0 5px var(--accent);
+}
+
+/* ══════════════════════════════════════
+   SLOT BOARD — 슬롯 패널
+   ══════════════════════════════════════ */
+
+.m-board {
+  padding: 6px 10px;
+  position: relative;
+}
+
+.m-board .gridWrap {
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow:
+    0 4px 24px rgba(20, 14, 8, 0.25),
+    inset 0 1px 0 rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(32, 24, 18, 0.82);
+  padding: 6px;
+}
+
+.m-board .grid {
+  gap: 5px;
+}
+
+/* ══════════════════════════════════════
+   CONTROLS — SPIN 버튼 핵심 개선
+   ══════════════════════════════════════ */
+
+.m-controls {
+  padding: 8px 12px;
+  gap: 10px;
+}
+
+/* Spin 버튼 — 핵심 */
+.m-btn--spin {
+  flex: 1;
+  max-width: 220px;
+  padding: 13px 28px;
+  font-size: 17px;
+  font-weight: 900;
+  font-family: var(--font-body);
+  letter-spacing: 0.08em;
+  border-radius: 16px;
+  border: none;
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(
+    160deg,
+    #f5bc2e 0%,
+    #ff8c42 55%,
+    #f5bc2e 100%
+  );
+  background-size: 200% 100%;
+  color: rgba(10, 8, 12, 0.92);
+  box-shadow:
+    0 4px 20px rgba(245, 140, 66, 0.45),
+    0 2px 6px rgba(60, 42, 28, 0.12),
+    inset 0 1px 0 rgba(255, 255, 255, 0.3);
+  animation: spinBtnIdle 2.8s ease-in-out infinite;
+  transition: transform 120ms ease, box-shadow 120ms ease, filter 120ms ease;
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.2);
+}
+
+/* 반짝이는 빛 레이어 */
+.m-btn--spin::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -80%;
+  width: 50%;
+  height: 200%;
+  background: linear-gradient(
+    105deg,
+    transparent 30%,
+    rgba(255, 255, 255, 0.25) 50%,
+    transparent 70%
+  );
+  animation: spinBtnShine 2.8s ease-in-out infinite;
+  pointer-events: none;
+}
+
+@keyframes spinBtnIdle {
+  0%, 100% { background-position: 0% 50%;   box-shadow: 0 4px 20px rgba(245,140,66,0.45), 0 2px 6px rgba(60,42,28,0.12), inset 0 1px 0 rgba(255,255,255,0.3); }
+  50%       { background-position: 100% 50%; box-shadow: 0 6px 28px rgba(245,188,46,0.6),  0 2px 6px rgba(60,42,28,0.12), inset 0 1px 0 rgba(255,255,255,0.35); }
+}
+
+@keyframes spinBtnShine {
+  0%   { left: -80%; opacity: 0; }
+  20%  { opacity: 1; }
+  60%  { left: 120%; opacity: 0; }
+  100% { left: 120%; opacity: 0; }
+}
+
+.m-btn--spin:hover {
+  transform: translateY(-2px) scale(1.01);
+  box-shadow: 0 8px 32px rgba(245, 140, 66, 0.6), 0 2px 8px rgba(60, 42, 28, 0.12);
+  filter: brightness(1.05);
+}
+
+.m-btn--spin:active {
+  transform: translateY(1px) scale(0.99);
+  box-shadow: 0 2px 12px rgba(245, 140, 66, 0.4), 0 1px 4px rgba(60, 42, 28, 0.12);
+  filter: brightness(0.97);
+}
+
+.m-btn--spin:disabled {
+  animation: none;
+  background: rgba(255, 245, 230, 0.06);
+  color: rgba(255, 245, 230, 0.35);
+  box-shadow: none;
+  transform: none;
+  filter: none;
+  border: 1px solid rgba(255, 245, 230, 0.08);
+}
+
+.m-btn--spin:disabled::before {
+  display: none;
+}
+
+/* 펫 버튼 */
+.m-btn--pet {
+  width: 52px;
+  height: 52px;
+  padding: 0;
+  border-radius: 14px;
+  background: rgba(255, 245, 230, 0.05);
+  border: 1.5px solid rgba(255, 245, 230, 0.12);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  transition: transform 120ms ease, box-shadow 120ms ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.m-btn--pet:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.3);
+}
+
+/* 펫 준비 글로우 */
+.m-btn--pet.m-btn--petReady {
+  border-color: rgba(245, 188, 46, 0.5);
+  animation: petReadyPulse 1.8s ease-in-out infinite;
+}
+
+.m-btn__icon {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  flex: 1 1 auto;
+  overflow: hidden;
+}
+
+.m-btn__petImg {
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  object-fit: cover;
+}
+
+.m-btn__cooldownOverlay {
+  position: absolute;
+  inset: 0;
+  border-radius: 14px;
+  background: rgba(14, 12, 10, 0.72);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(1px);
+}
+
+.m-btn__cooldownValue {
+  font-family: var(--font-num);
+  font-size: 22px;
+  font-weight: 900;
+  line-height: 1;
+  color: rgba(255, 247, 230, 0.98);
+  text-shadow:
+    0 1px 2px rgba(0, 0, 0, 0.45),
+    0 0 10px rgba(255, 214, 120, 0.18);
+}
+
+@keyframes petReadyPulse {
+  0%, 100% { box-shadow: 0 0 8px 1px rgba(245,188,46,0.3),  0 2px 8px rgba(60,42,28,0.08); }
+  50%       { box-shadow: 0 0 18px 4px rgba(245,188,46,0.6), 0 2px 12px rgba(60,42,28,0.08); }
+}
+
+/* ══════════════════════════════════════
+   READOUT — 피해/체크/잭팟
+   ══════════════════════════════════════ */
+
+.m-readout {
+  font-size: 11px;
+  padding: 4px 12px;
+  gap: 20px;
+  background: rgba(32, 24, 18, 0.75);
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 0 0 12px 12px;
+}
+
+.m-readout__label {
+  color: rgba(255, 255, 255, 0.4);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+}
+
+.m-readout__item span:not(.m-readout__label) {
+  font-family: var(--font-num);
+  font-weight: 900;
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.88);
+}
+
+/* ══════════════════════════════════════
+   XP BAR — 하단
+   ══════════════════════════════════════ */
+
+.m-xpbar {
+  background: rgba(255, 245, 230, 0.03);
+  border-top: 1px solid rgba(255, 245, 230, 0.06);
+  padding: 7px 14px 12px;
+}
+
+.m-xpbar__lv {
+  font-family: var(--font-num);
+  font-size: 11px;
+  font-weight: 900;
+  color: var(--accent);
+  letter-spacing: 0.04em;
+}
+
+.m-xpbar__track {
+  height: 7px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  overflow: hidden;
+}
+
+.m-xpbar__fill {
+  background: linear-gradient(90deg, var(--accent), #ff8c42);
+  box-shadow: 0 0 8px rgba(245, 188, 46, 0.4);
+}
+
+.m-xpbar__text {
+  font-family: var(--font-num);
+  font-size: 10px;
+  font-weight: 700;
+  color: rgba(255, 245, 230, 0.45);
+}
+
+/* ══════════════════════════════════════
+   MODAL 공통 개선
+   ══════════════════════════════════════ */
+
+.modal__card {
+  border-radius: 20px;
+  border: 1px solid rgba(255, 245, 230, 0.1);
+  background: linear-gradient(
+    180deg,
+    rgba(38, 32, 26, 0.98) 0%,
+    rgba(30, 26, 22, 0.98) 100%
+  );
+  box-shadow:
+    0 20px 60px rgba(0, 0, 0, 0.4),
+    0 4px 16px rgba(0, 0, 0, 0.2);
+  color: rgba(255, 245, 230, 0.88);
+}
+
+.modal__kicker {
+  font-size: 10px;
+  font-weight: 900;
+  letter-spacing: 0.18em;
+  color: var(--accent);
+  opacity: 0.9;
+}
+
+.modal__title {
+  font-size: 20px;
+  font-weight: 900;
+  letter-spacing: 0.02em;
+  color: rgba(255, 245, 230, 0.95);
+}
+
+/* 스킬/장식 선택 카드 — 가운데 정렬 */
+.choices {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px;
+}
+
+.choice {
+  flex: 1 1 160px;
+  max-width: 220px;
+}
+
+.modal--gamble .choice {
+  background: rgba(255, 245, 230, 0.06);
+  border-color: rgba(255, 245, 230, 0.12);
+}
+
+.modal--gamble .choice__name {
+  color: rgba(255, 245, 230, 0.95);
+}
+
+.modal--gamble .choice__desc {
+  color: rgba(255, 245, 230, 0.65);
+  font-size: 11px;
+  line-height: 1.45;
+  font-weight: 600;
+}
+
+/* ── 이벤트 모달 선택지 — 골드 버튼 통일 ── */
+.modal--campfire .choice {
+  background: linear-gradient(160deg, #f5bc2e, #ff8c42);
+  border: none;
+  box-shadow: 0 4px 16px rgba(245, 140, 66, 0.35);
+  transition: transform 120ms ease, box-shadow 120ms ease, filter 120ms ease;
+}
+
+.modal--campfire .choice:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 22px rgba(245, 140, 66, 0.5);
+  filter: brightness(1.05);
+  border-color: transparent;
+}
+
+.modal--campfire .choice:active {
+  transform: translateY(1px);
+  filter: brightness(0.97);
+}
+
+.modal--campfire .choice__name {
+  color: rgba(10, 8, 6, 0.9);
+  font-weight: 900;
+}
+
+.modal--campfire .choice__desc {
+  color: rgba(10, 8, 6, 0.55);
+  font-size: 11px;
+  font-weight: 600;
+}
+
+/* ── 럭키락 이모지 표시 ── */
+.cellLockTag {
+  font-size: 13px;
+  letter-spacing: 0;
+  padding: 2px 5px;
+  background: rgba(0, 0, 0, 0.45);
+  border-color: rgba(255,255,255,0.25);
+}
+
+/* ── 부적 태그 가독성 개선 ── */
+.talisman__tag {
+  background: rgba(20, 12, 6, 0.62);
+  border-color: rgba(255, 255, 255, 0.18);
+  color: #ffffff;
+  text-shadow: 0 1px 3px rgba(0,0,0,0.5);
+}
+
+/* ── 스킬 카드 등급별 색상 ── */
+.modal--gamble .choice--C  { border-color: rgba(122,127,135,0.40); background: rgba(122,127,135,0.07); }
+.modal--gamble .choice--B  { border-color: rgba(47,166,90,0.40);   background: rgba(47,166,90,0.07); }
+.modal--gamble .choice--A  { border-color: rgba(70,168,255,0.40);  background: rgba(70,168,255,0.07); }
+.modal--gamble .choice--S  { border-color: rgba(142,91,255,0.42);  background: rgba(142,91,255,0.08); }
+.modal--gamble .choice--SS { border-color: rgba(242,197,60,0.50);  background: rgba(242,197,60,0.09); }
+.modal--gamble .choice--SSS {
+  border-color: rgba(226,85,85,0.55);
+  background: rgba(226,85,85,0.11);
+  box-shadow: 0 0 0 1px rgba(226,85,85,0.18) inset;
+}
+
+/* ── 등급 아이콘 → 좌상단 ── */
+.choice__gradeIcon {
+  bottom: auto;
+  right: auto;
+  top: -6px;
+  left: -6px;
+}
+
+/* ══════════════════════════════════════
+   LOBBY / 시작화면 개선
+   ══════════════════════════════════════ */
+
+.lobby {
+  background: linear-gradient(
+    180deg,
+    var(--bg1) 0%,
+    var(--bg0) 100%
+  );
+}
+
+.menuCard {
+  border-radius: 16px;
+  border: 1px solid rgba(255, 245, 230, 0.08);
+  background: rgba(255, 245, 230, 0.03);
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.2);
+}
+
+.menuCard__title {
+  font-size: 16px;
+  font-weight: 900;
+  letter-spacing: 0.06em;
+  color: rgba(255, 245, 230, 0.8);
+  text-align: center;
+}
+
+/* 시작 버튼 */
+.btn--start {
+  background: linear-gradient(160deg, #f5bc2e, #ff8c42);
+  color: rgba(10, 8, 12, 0.9);
+  font-weight: 900;
+  letter-spacing: 0.06em;
+  border: none;
+  box-shadow: 0 4px 16px rgba(245, 140, 66, 0.4);
+  transition: transform 120ms ease, box-shadow 120ms ease;
+}
+
+.btn--start:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 22px rgba(245, 140, 66, 0.55);
+  filter: brightness(1.05);
+}
+
+/* 로비 하단 nav */
+.lobby__nav {
+  border-top: 1px solid rgba(255, 245, 230, 0.06);
+  background: rgba(30, 26, 22, 0.98);
+  backdrop-filter: blur(12px);
+}
+
+.lobby__navBtn--active .lobby__navLabel {
+  color: var(--accent);
+}
+
+.lobby__navBtn--active .lobby__navIcon {
+  filter: drop-shadow(0 0 4px rgba(245, 188, 46, 0.6));
+}
+
+/* 추억장식 슬롯 */
+.decoSlot {
+  border-radius: 12px;
+  border: 1.5px dashed rgba(255, 245, 230, 0.15);
+  background: rgba(255, 245, 230, 0.06);
+  transition: border-color 0.2s ease;
+}
+
+.decoSlots__hint {
+  font-size: 10px;
+  color: rgba(255, 245, 230, 0.45);
+  letter-spacing: 0.02em;
+}
+
+/* ══════════════════════════════════════
+   등급 색상 업데이트
+   ══════════════════════════════════════ */
+
+/* 추억장식 등급 */
+.gradeBadge--C { background: rgba(122, 127, 135, 0.14); border-color: rgba(122, 127, 135, 0.34); color: #7a7f87; }
+.gradeBadge--B { background: rgba(47, 166, 90, 0.14); border-color: rgba(47, 166, 90, 0.34); color: #2fa65a; }
+.gradeBadge--A { background: rgba(70, 168, 255, 0.14); border-color: rgba(70, 168, 255, 0.34); color: #46a8ff; }
+.gradeBadge--S { background: rgba(142, 91, 255, 0.16); border-color: rgba(142, 91, 255, 0.38); color: #8e5bff; }
+.gradeBadge--SS { background: rgba(226, 85, 85, 0.16); border-color: rgba(226, 85, 85, 0.38); color: #e25555; }
+.gradeBadge--SSS { background: rgba(226, 85, 85, 0.18); border-color: rgba(226, 85, 85, 0.42); color: #e25555; }
+
+.petGridItem__grade--C,
+.petDetail__grade--C { background: #7a7f87; color: #f4f6f8; }
+.petGridItem__grade--B,
+.petDetail__grade--B { background: #2fa65a; color: #f6fff8; }
+.petGridItem__grade--A,
+.petDetail__grade--A { background: #46a8ff; color: #f4fbff; }
+.petGridItem__grade--S,
+.petDetail__grade--S { background: #8e5bff; color: #faf7ff; }
+.petGridItem__grade--SS,
+.petDetail__grade--SS { background: #f2c94c; color: #4a3410; }
+.petGridItem__grade--SSS,
+.petDetail__grade--SSS { background: #e25555; color: #fff7f7; }
+
+.decoGridItem__grade--A { background: #46a8ff; color: #f4fbff; }
+.decoGridItem__grade--S { background: #8e5bff; color: #faf7ff; }
+.decoGridItem__grade--SS { background: #f2c94c; color: #4a3410; }
+.decoGridItem__grade--SSS { background: #e25555; color: #fff7f7; }
+
+.decoDetail__grade[data-grade="A"]   { color: #46a8ff; }
+.decoDetail__grade[data-grade="S"]   { color: #8e5bff; }
+.decoDetail__grade[data-grade="SS"]  { color: #f2c94c; }
+.decoDetail__grade[data-grade="SSS"] { color: #e25555; }
+
+/* ══════════════════════════════════════
+   JOURNEY 히트/피격 애니 강화
+   ══════════════════════════════════════ */
+
+@keyframes charHit {
+  0%   { transform: translateX(0)   brightness(1); filter: brightness(1); }
+  25%  { transform: translateX(-8px); filter: brightness(2) saturate(0); }
+  50%  { transform: translateX(5px);  filter: brightness(1.5); }
+  75%  { transform: translateX(-3px); }
+  100% { transform: translateX(0);   filter: brightness(1); }
+}
+
+@keyframes charHurt {
+  0%   { transform: translateX(0);   filter: brightness(1); }
+  20%  { transform: translateX(8px);  filter: brightness(1.8) hue-rotate(340deg); }
+  50%  { transform: translateX(-4px); filter: brightness(1.3); }
+  75%  { transform: translateX(2px); }
+  100% { transform: translateX(0);   filter: brightness(1); }
+}
+
+/* ══════════════════════════════════════
+   DECO BURST PARTICLES (override.js 주입)
+   ══════════════════════════════════════ */
+
+.deco-burst-particle {
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 200;
+  transform-origin: center;
+  animation: decoBurst 0.48s cubic-bezier(0.2, 0.8, 0.4, 1) forwards;
+}
+
+@keyframes decoBurst {
+  0%   { transform: translate(0, 0) scale(1.2); opacity: 1; }
+  60%  { opacity: 0.7; }
+  100% { transform: translate(var(--dx), var(--dy)) scale(0); opacity: 0; }
+}
+
+/* ══════════════════════════════════════
+   FIREWORKS CANVAS (잭팟 연출)
+   ══════════════════════════════════════ */
+
+.fireworks-canvas {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 9999;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+.fireworks-canvas.fireworks--active {
+  opacity: 1;
+}
+
+/* ══════════════════════════════════════
+   SLOT CELLS — 개별 셀 개선
+   ══════════════════════════════════════ */
+
+/* 기본 셀 — 약간 더 입체감 */
+.cell {
+  border-radius: 14px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.06);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.04);
+}
+
+/* 매치된 셀 글로우 강화 */
+.cell--target {
+  border-color: rgba(255, 255, 255, 0.28);
+  box-shadow:
+    0 0 0 1.5px rgba(255, 255, 255, 0.12),
+    0 0 16px rgba(245, 188, 46, 0.15),
+    inset 0 1px 0 rgba(255, 255, 255, 0.08);
+}
+
+/* ══════════════════════════════════════
+   숫자 표시 전역 — Space Grotesk 적용
+   ══════════════════════════════════════ */
+
+#spinDamage,
+#spinChecks,
+#playerHpText,
+#playerAtkDisplay,
+#gold,
+#goldText,
+#xp,
+#level,
+#sbComboNum,
+#sbMultVal,
+#sbFireVal,
+#sbLightVal,
+#sbNatureVal,
+#sbWaterVal,
+.sb__elemVal,
+.sb__comboNum {
+  font-family: var(--font-num);
+}
+
+/* ═══════════════════════════════════════════
+   뽑기 결과 팝업 (RPG 가차 스타일)
+   ═══════════════════════════════════════════ */
+
+/* 풀스크린 어두운 배경 */
+#gachaModal {
+  z-index: 9999;
+  background: rgba(0, 0, 0, 0.6) !important;
+}
+
+.gachaPopup {
+  display: flex !important;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: min(420px, 92vw);
+  padding: 28px 16px 20px;
+  cursor: pointer;
+}
+
+.gachaPopup__title {
+  font-size: 16px;
+  font-weight: 700;
+  color: rgba(255, 245, 230, 0.5);
+  letter-spacing: 0.08em;
+  margin-bottom: 24px;
+  text-transform: uppercase;
+}
+
+/* 카드 그리드 — 동적 레이아웃 */
+.gachaPopup__grid {
+  display: flex !important;
+  flex-wrap: wrap !important;
+  justify-content: center;
+  gap: 10px;
+  width: 100%;
+  max-width: 380px;
+}
+
+/* 개별 카드 */
+.gachaCard {
+  width: 80px !important;
+  flex: 0 0 80px;
+  display: flex !important;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  animation: gachaCardReveal 0.4s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+}
+
+.gachaCard__icon {
+  width: 72px !important;
+  height: 72px !important;
+  border-radius: 14px;
+  border: 2px solid rgba(255, 245, 230, 0.12);
+  background: rgba(255, 245, 230, 0.06);
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  position: relative;
+  transition: transform 0.2s;
+}
+
+.gachaCard__icon img {
+  width: 60px !important;
+  height: 60px !important;
+  object-fit: contain;
+  border-radius: 8px;
+}
+
+.gachaCard__icon--placeholder {
+  font-size: 28px;
+  color: rgba(255, 245, 230, 0.25);
+}
+
+/* 등급별 테두리 색상 */
+.gachaCard--C .gachaCard__icon { border-color: rgba(122, 127, 135, 0.65); box-shadow: 0 0 10px rgba(122, 127, 135, 0.14); }
+.gachaCard--B .gachaCard__icon { border-color: rgba(47, 166, 90, 0.72); box-shadow: 0 0 12px rgba(47, 166, 90, 0.18); }
+.gachaCard--A .gachaCard__icon { border-color: rgba(70, 168, 255, 0.8); box-shadow: 0 0 14px rgba(70, 168, 255, 0.22); }
+.gachaCard--S .gachaCard__icon { border-color: rgba(142, 91, 255, 0.82); box-shadow: 0 0 18px rgba(142, 91, 255, 0.26); }
+.gachaCard--SS .gachaCard__icon { border-color: rgba(226, 85, 85, 0.88); box-shadow: 0 0 20px rgba(226, 85, 85, 0.28); }
+.gachaCard--SSS .gachaCard__icon { border-color: rgba(226, 85, 85, 0.96); box-shadow: 0 0 24px rgba(226, 85, 85, 0.34); }
+
+/* NEW 뱃지 */
+.gachaCard__new {
+  position: absolute;
+  top: -4px;
+  right: -4px;
+  background: linear-gradient(135deg, #ff6b6b, #ff4757);
+  color: #fff;
+  font-size: 8px;
+  font-weight: 900;
+  padding: 2px 5px;
+  border-radius: 6px;
+  letter-spacing: 0.05em;
+  box-shadow: 0 2px 6px rgba(255, 71, 87, 0.4);
+  z-index: 2;
+}
+
+/* 등급 뱃지 */
+.gachaCard__grade {
+  font-size: 9px;
+  font-weight: 800;
+  padding: 1px 6px;
+  border-radius: 4px;
+  letter-spacing: 0.04em;
+}
+.gachaCard--C .gachaCard__grade { background: rgba(122, 127, 135, 0.18); color: #7a7f87; }
+.gachaCard--B .gachaCard__grade { background: rgba(47, 166, 90, 0.16); color: #2fa65a; }
+.gachaCard--A .gachaCard__grade { background: rgba(70, 168, 255, 0.16); color: #46a8ff; }
+.gachaCard--S .gachaCard__grade { background: rgba(142, 91, 255, 0.16); color: #8e5bff; }
+.gachaCard--SS .gachaCard__grade { background: rgba(226, 85, 85, 0.16); color: #e25555; }
+.gachaCard--SSS .gachaCard__grade { background: rgba(226, 85, 85, 0.18); color: #e25555; }
+
+/* 이름 */
+.gachaCard__name {
+  font-size: 10px;
+  font-weight: 600;
+  color: rgba(255, 245, 230, 0.75);
+  text-align: center;
+  line-height: 1.2;
+  max-width: 80px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* 조각 정보 */
+.gachaCard__frag {
+  font-size: 9px;
+  color: rgba(255, 245, 230, 0.35);
+}
+
+/* 힌트 텍스트 */
+.gachaPopup__hint {
+  margin-top: 28px;
+  font-size: 12px;
+  color: rgba(255, 245, 230, 0.2);
+  animation: gachaPulse 2s ease-in-out infinite;
+}
+
+/* 카드 등장 애니메이션 */
+@keyframes gachaCardReveal {
+  0% {
+    opacity: 0;
+    transform: scale(0.5) translateY(20px);
+  }
+  60% {
+    opacity: 1;
+    transform: scale(1.08) translateY(-4px);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+/* 힌트 펄스 */
+@keyframes gachaPulse {
+  0%, 100% { opacity: 0.25; }
+  50% { opacity: 0.5; }
+}
+
+/* S등급 이상 빛나는 효과 */
+.gachaCard--S .gachaCard__icon::after,
+.gachaCard--SS .gachaCard__icon::after,
+.gachaCard--SSS .gachaCard__icon::after {
+  content: '';
+  position: absolute;
+  inset: -2px;
+  border-radius: 16px;
+  background: conic-gradient(
+    from 0deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.15) 10%,
+    transparent 20%
+  );
+  animation: gachaShine 3s linear infinite;
+  pointer-events: none;
+}
+
+@keyframes gachaShine {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* ══════════════════════════════════════
+   이벤트 모달 — 공통 개선
+   ══════════════════════════════════════ */
+
+/* 메시지 텍스트 — 가독성 + 가운데정렬 */
+.modal__message {
+  color: rgba(255, 245, 230, 0.7);
+  font-size: 13px;
+  text-align: center;
+  line-height: 1.6;
+}
+
+/* 타이틀/킥커 가운데정렬 */
+.modal--campfire .modal__kicker,
+.modal--campfire .modal__title,
+.modal--campfire .modal__hint {
+  text-align: center;
+}
+
+.modal__hint {
+  color: rgba(255, 245, 230, 0.35);
+  font-size: 11px;
+  text-align: center;
+}
+
+/* ══════════════════════════════════════
+   이벤트 공통 — 대사/분위기 박스
+   ══════════════════════════════════════ */
+
+.event-quote {
+  text-align: center;
+  font-size: 13px;
+  font-style: italic;
+  color: rgba(255, 245, 230, 0.5);
+  margin: 8px 0 12px;
+  padding: 8px 16px;
+  border-left: 3px solid rgba(255, 245, 230, 0.08);
+  border-right: 3px solid rgba(255, 245, 230, 0.08);
+}
+
+/* 이벤트 보상 결과 박스 */
+.event-reward {
+  text-align: center;
+  margin: 10px auto;
+  padding: 10px 16px;
+  border-radius: 12px;
+  max-width: 300px;
+}
+
+.event-reward--good {
+  background: rgba(34, 197, 94, 0.08);
+  border: 1px solid rgba(34, 197, 94, 0.2);
+  color: #16a34a;
+}
+
+.event-reward--bad {
+  background: rgba(239, 68, 68, 0.08);
+  border: 1px solid rgba(239, 68, 68, 0.2);
+  color: #dc2626;
+}
+
+.event-reward--neutral {
+  background: rgba(255, 245, 230, 0.04);
+  border: 1px solid rgba(255, 245, 230, 0.1);
+  color: rgba(255, 245, 230, 0.65);
+}
+
+.event-reward__title {
+  font-size: 14px;
+  font-weight: 800;
+  margin-bottom: 4px;
+}
+
+.event-reward__detail {
+  font-size: 12px;
+  opacity: 0.8;
+}
+
+/* ══════════════════════════════════════
+   망령의 내기 — 시각 요소
+   ══════════════════════════════════════ */
+
+.wraith-monster {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  margin: 8px 0;
+}
+
+.wraith-monster__icon {
+  font-size: 48px;
+  line-height: 1;
+  filter: drop-shadow(0 0 12px rgba(120, 80, 200, 0.4));
+  animation: wraithFloat 2.5s ease-in-out infinite;
+}
+
+@keyframes wraithFloat {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+}
+
+.wraith-monster__name {
+  font-size: 14px;
+  font-weight: 800;
+  color: rgba(120, 80, 200, 0.9);
+  letter-spacing: 0.1em;
+}
+
+.wraith-info {
+  text-align: center;
+  font-size: 11px;
+  color: rgba(255, 245, 230, 0.45);
+  margin-bottom: 12px;
+}
+
+/* 망령 성불 보상 테이블 */
+.ghost-rewards {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin: 8px 0 12px;
+}
+
+.ghost-reward {
+  flex: 0 0 85px;
+  text-align: center;
+  padding: 8px 4px;
+  border-radius: 10px;
+  border: 1px solid rgba(255, 245, 230, 0.06);
+  background: rgba(255, 245, 230, 0.02);
+}
+
+.ghost-reward__round {
+  font-size: 14px;
+  font-weight: 900;
+  font-family: var(--font-num);
+  margin-bottom: 2px;
+}
+
+.ghost-reward__grade {
+  font-size: 18px;
+  font-weight: 900;
+  margin-bottom: 2px;
+}
+
+.ghost-reward__desc {
+  font-size: 9px;
+  color: rgba(255, 245, 230, 0.45);
+}
+
+.ghost-reward--ss {
+  border-color: rgba(168, 85, 247, 0.4);
+  background: rgba(168, 85, 247, 0.06);
+}
+.ghost-reward--ss .ghost-reward__round { color: #a855f7; }
+.ghost-reward--ss .ghost-reward__grade { color: #c084fc; }
+
+.ghost-reward--s {
+  border-color: rgba(59, 130, 246, 0.3);
+  background: rgba(59, 130, 246, 0.04);
+}
+.ghost-reward--s .ghost-reward__round { color: #3b82f6; }
+.ghost-reward--s .ghost-reward__grade { color: #60a5fa; }
+
+.ghost-reward--a {
+  border-color: rgba(34, 197, 94, 0.3);
+  background: rgba(34, 197, 94, 0.04);
+}
+.ghost-reward--a .ghost-reward__round { color: #22c55e; }
+.ghost-reward--a .ghost-reward__grade { color: #4ade80; }
+
+/* ══════════════════════════════════════
+   괴짜의 룰렛 — 8칸 휠 시각화
+   ══════════════════════════════════════ */
+
+/* ── 룰렛 컨테이너 ── */
+.roulette-container {
+  position: relative;
+  width: 180px;
+  height: 210px;
+  margin: 12px auto;
+}
+
+/* ── 포인터 (상단 고정 삼각형) ── */
+.roulette-pointer {
+  position: absolute;
+  top: 2px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 22px;
+  color: var(--accent);
+  z-index: 10;
+  filter: drop-shadow(0 2px 4px rgba(0,0,0,0.5));
+  text-shadow: 0 0 8px var(--accent-glow);
+  line-height: 1;
+}
+
+/* ── 원형 휠 ── */
+.roulette-circle {
+  position: absolute;
+  top: 22px;
+  left: 0;
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  border: 3px solid rgba(255, 245, 230, 0.18);
+  box-shadow:
+    0 0 24px rgba(245, 188, 46, 0.12),
+    inset 0 0 30px rgba(0, 0, 0, 0.3);
+  overflow: hidden;
+  will-change: transform;
+}
+
+/* ── 중앙 원 (장식) ── */
+.roulette-center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 28px;
+  height: 28px;
+  margin: -14px 0 0 -14px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(245, 188, 46, 0.3) 0%, rgba(30, 26, 22, 0.9) 70%);
+  border: 2px solid rgba(245, 188, 46, 0.25);
+  z-index: 5;
+}
+
+/* ── 세그먼트 구분선 (반지름) ── */
+.roulette-seg-line {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 50%;
+  height: 1px;
+  background: rgba(255, 245, 230, 0.15);
+  transform-origin: 0 0;
+  transform: rotate(var(--angle));
+}
+
+/* ── 세그먼트 아이콘 (파이 중앙에 배치) ── */
+.roulette-seg-icon {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 24px;
+  height: 24px;
+  margin: -12px 0 0 -12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  transform: rotate(var(--angle)) translateY(-58px) rotate(calc(-1 * var(--angle)));
+  pointer-events: none;
+}
+
+/* 결과 하이라이트 */
+.seg-icon--reward-hit {
+  font-size: 24px;
+  filter: drop-shadow(0 0 10px rgba(34, 197, 94, 0.7));
+}
+
+.seg-icon--bust-hit {
+  font-size: 24px;
+  filter: drop-shadow(0 0 10px rgba(239, 68, 68, 0.7));
+}
+
+/* ── 스핀 중 텍스트 ── */
+.roulette-spinning-text {
+  text-align: center;
+  margin-top: 4px;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--accent);
+  animation: roulettePulse 0.6s ease-in-out infinite;
+}
+
+@keyframes roulettePulse {
+  0%, 100% { opacity: 0.5; }
+  50% { opacity: 1; }
+}
+
+@keyframes roulettePop {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.3); }
+  100% { transform: scale(1); }
+}
+
+@keyframes rouletteShake {
+  0%, 100% { transform: translateX(0); }
+  20% { transform: translateX(-3px); }
+  40% { transform: translateX(3px); }
+  60% { transform: translateX(-2px); }
+  80% { transform: translateX(2px); }
+}
+
+.roulette-info {
+  text-align: center;
+  font-size: 11px;
+  color: rgba(255, 245, 230, 0.45);
+  margin: 4px 0 8px;
+}
+
+.roulette-next-info {
+  text-align: center;
+  font-size: 12px;
+  font-weight: 700;
+  color: #ef4444;
+  margin: 8px 0 4px;
+  padding: 6px 12px;
+  background: rgba(239, 68, 68, 0.06);
+  border-radius: 8px;
+  border: 1px solid rgba(239, 68, 68, 0.15);
+}
+
+/* ══════════════════════════════════════
+   사제 — 거래 시각화
+   ══════════════════════════════════════ */
+
+.priest-trade {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin: 12px 0;
+  padding: 10px 16px;
+  border-radius: 12px;
+  background: rgba(255, 245, 230, 0.03);
+  border: 1px solid rgba(255, 245, 230, 0.06);
+}
+
+.priest-trade__cost,
+.priest-trade__reward {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.priest-trade__cost {
+  color: #dc2626;
+}
+
+.priest-trade__reward {
+  color: #22c55e;
+}
+
+.priest-trade__icon {
+  font-size: 24px;
+  line-height: 1;
+}
+
+.priest-trade__arrow {
+  font-size: 20px;
+  color: rgba(255, 245, 230, 0.25);
+  font-weight: 900;
+}
+
+/* ══════════════════════════════════════
+   다크 테마 — 포괄적 색상 오버라이드
+   styles.css의 하드코딩된 rgba(60,42,28) 일괄 처리
+   ══════════════════════════════════════ */
+
+/* ── 로비 전체: 텍스트 밝게 ── */
+.lobby,
+.lobby__panel,
+.lobby__content {
+  color: rgba(255, 245, 230, 0.88);
+}
+
+/* 로비 상단 바 */
+.lobby__topItem {
+  color: rgba(255, 245, 230, 0.8);
+}
+
+.lobby__topHint {
+  color: rgba(255, 245, 230, 0.45);
+}
+
+/* 챕터 선택 영역 */
+.chapterSelector__label {
+  color: rgba(255, 245, 230, 0.85);
+}
+
+.chapterSelector__num {
+  color: rgba(255, 245, 230, 0.9);
+}
+
+/* 챕터 테마/특성 */
+.chapterTheme__k,
+.chapterTrait__k,
+.bossPassives__k {
+  color: rgba(255, 245, 230, 0.5);
+}
+
+.chapterTheme__v,
+.chapterTrait__name {
+  color: rgba(255, 245, 230, 0.88);
+}
+
+.chapterTrait__desc {
+  color: rgba(255, 245, 230, 0.6);
+}
+
+.chapterTrait__counter {
+  color: rgba(255, 245, 230, 0.5);
+}
+
+/* 보스 패시브 */
+.bossPassiveItem__name {
+  color: rgba(255, 245, 230, 0.88);
+}
+
+.bossPassiveItem__desc {
+  color: rgba(255, 245, 230, 0.6);
+}
+
+/* 로비 네비게이션 */
+.lobby__navLabel {
+  color: rgba(255, 245, 230, 0.5);
+}
+
+.lobby__navIcon {
+  color: rgba(255, 245, 230, 0.45);
+}
+
+.lobby__navBtn--active .lobby__navLabel {
+  color: var(--accent);
+}
+
+/* 배너 배경 다크화 */
+.startScreen__banner {
+  background: linear-gradient(160deg, rgba(38, 32, 26, 0.95), rgba(30, 26, 22, 0.95));
+  border-color: rgba(255, 245, 230, 0.06);
+}
+
+/* ── 스킬 선택 모달 (modal--gamble) 텍스트 ── */
+.choice__short {
+  color: rgba(255, 245, 230, 0.6);
+}
+
+.choice__tags {
+  color: rgba(255, 245, 230, 0.6);
+}
+
+.gradeBadge {
+  border-color: rgba(255, 245, 230, 0.15);
+  background: rgba(255, 245, 230, 0.06);
+  color: rgba(255, 245, 230, 0.85);
+}
+
+/* ── 전투 로그 ── */
+.battleLog__entry {
+  color: rgba(255, 245, 230, 0.75);
+}
+
+/* ── 상점/성장/내 정보 패널 공통 ── */
+.shopPanel,
+.growPanel,
+.infoPanel,
+.eventPanel {
+  color: rgba(255, 245, 230, 0.85);
+}
+
+/* ── 펫 상세 팝업 ── */
+.petDetail {
+  color: rgba(255, 245, 230, 0.88);
+}
+
+.petDetail__activeDesc,
+.petDetail__passiveDesc {
+  color: rgba(255, 245, 230, 0.65);
+}
+
+.petDetail__passiveLock {
+  color: rgba(255, 245, 230, 0.2);
+}
+
+.petSkillInfo {
+  color: rgba(255, 245, 230, 0.75);
+  background: rgba(255, 245, 230, 0.04);
+}
+
+/* 펫 그리드 */
+.petGridItem__name {
+  color: rgba(255, 245, 230, 0.85);
+}
+
+.petSlot__empty {
+  color: rgba(255, 245, 230, 0.15);
+}
+
+.petSynthesis__slot--add {
+  color: rgba(255, 245, 230, 0.15);
+}
+
+/* ── 장식 상세 팝업 ── */
+.decoDetail {
+  color: rgba(255, 245, 230, 0.88);
+}
+
+.decoDetail__desc {
+  color: rgba(255, 245, 230, 0.65);
+}
+
+.decoSlot__empty {
+  color: rgba(255, 245, 230, 0.15);
+}
+
+.decoGridItem__name {
+  color: rgba(255, 245, 230, 0.85);
+}
+
+/* ── 장비 상세 팝업 ── */
+.equipDetail {
+  color: rgba(255, 245, 230, 0.88);
+}
+
+.equipDetail__passiveDesc {
+  color: rgba(255, 245, 230, 0.65);
+}
+
+/* ── 도감/코덱스 ── */
+.codex__content {
+  color: rgba(255, 245, 230, 0.85);
+}
+
+/* ── 전투 흐름 텍스트 ── */
+.readout__label {
+  color: rgba(255, 245, 230, 0.4);
+}
+
+.readout__val {
+  color: rgba(255, 245, 230, 0.88);
+}
+
+/* ── 헬프/도움말 모달 ── */
+.modal__card--help {
+  color: rgba(255, 245, 230, 0.85);
+}
+
+/* ── 범용: 남은 border-color 오버라이드 ── */
+.lobby__nav {
+  border-color: rgba(255, 245, 230, 0.06);
+}
+
+/* ── 범용: 남은 하드코딩 텍스트 fallback ── */
+.chapterSelector,
+.bossPassives,
+.chapterTheme,
+.chapterTrait,
+.petDetail__passives,
+.decoDetail__effects,
+.equipDetail__passives {
+  color: rgba(255, 245, 230, 0.8);
+}
+
+/* ══════════════════════════════════════
+   다크 테마 — 잔여 color 속성 전수 오버라이드
+   styles.css rgba(60,42,28) 하드코딩 완전 제거
+   ══════════════════════════════════════ */
+
+/* ── 전투 화면 (Battle) ── */
+.m-char__name { color: rgba(255, 245, 230, 0.88); }
+.m-char__hp-text { color: rgba(255, 245, 230, 0.65); }
+.m-enemy-name { color: rgba(255, 245, 230, 0.85); }
+.m-info-bar__hp,
+.m-info-bar__atk,
+.m-info-bar__gold { color: rgba(255, 245, 230, 0.88); }
+.m-info-bar__label { color: rgba(255, 245, 230, 0.5); }
+.m-info-bar__menu { color: rgba(255, 245, 230, 0.7); }
+.m-chip { color: rgba(255, 245, 230, 0.88); }
+.m-chip-sep { color: rgba(255, 245, 230, 0.18); }
+.m-readout__label { color: rgba(255, 245, 230, 0.5); }
+.m-readout__item span:not(.m-readout__label) { color: rgba(255, 245, 230, 0.88); }
+.m-xpbar__text { color: rgba(255, 245, 230, 0.5); }
+.m-btn--spin:disabled { color: rgba(255, 245, 230, 0.3); }
+
+/* 상태이상 칩 */
+.statusChip { color: rgba(255, 245, 230, 0.85); }
+.statusChip--weaken .statusChip__icon,
+.statusChip--tileSeal .statusChip__icon { color: rgba(255, 245, 230, 0.85); }
+
+/* 배율/콤보 보드 */
+.sb__comboNum { color: rgba(255, 245, 230, 0.8); }
+.sb__comboLabel { color: rgba(255, 245, 230, 0.5); }
+
+/* 토스트 알림 */
+.fxToast { color: rgba(255, 245, 230, 0.88); }
+.fxToast__k { color: rgba(255, 245, 230, 0.55); }
+.fxToast__s { color: rgba(255, 245, 230, 0.5); }
+
+/* 타일/룬/시길 (슬롯 위 아이콘 텍스트) */
+.tileRune,
+.rowConvertRune,
+[class^="sigil--"] { color: rgba(255, 245, 230, 0.92); }
+
+/* 부적 */
+.talisman__tag { color: rgba(255, 245, 230, 0.88); }
+
+/* 패시브 필 */
+.pill--passive .pill__icon { color: rgba(255, 245, 230, 0.75); }
+.pill--passive .pill__k { color: rgba(255, 245, 230, 0.65); }
+.pill--passive .pill__v { color: rgba(255, 245, 230, 0.88); }
+
+/* 확률 표시 (odds) */
+.odds__label { color: rgba(255, 245, 230, 0.8); }
+.odds__value { color: rgba(255, 245, 230, 0.85); }
+
+/* 여정(journey) */
+.journeyChip { color: rgba(255, 245, 230, 0.88); }
+.journey__label { color: rgba(255, 245, 230, 0.85); }
+
+/* ── 스킬/런 정보 ── */
+.skill__short { color: rgba(255, 245, 230, 0.65); }
+.runInfo__elemName { color: rgba(255, 245, 230, 0.85); }
+.runInfo__pct { color: rgba(255, 245, 230, 0.7); }
+.runInfo__empty { color: rgba(255, 245, 230, 0.5); }
+.runInfo__skillName { color: rgba(255, 245, 230, 0.88); }
+.runInfo__skillDesc { color: rgba(255, 245, 230, 0.5); }
+.runInfo__skillList,
+.runInfo__skillItem { color: rgba(255, 245, 230, 0.85); }
+
+/* ── 모달 공통 ── */
+.modal__kicker { color: rgba(255, 245, 230, 0.55); }
+.modal__closeBtn { color: rgba(255, 245, 230, 0.5); }
+.btnIcon { color: rgba(255, 245, 230, 0.75); }
+.helpSteps { color: rgba(255, 245, 230, 0.85); }
+
+/* 메타/브랜드 */
+.metaRow__v { color: rgba(255, 245, 230, 0.88); }
+.metaRow--hint { color: rgba(255, 245, 230, 0.5); }
+.brand__kicker { color: rgba(255, 245, 230, 0.88); }
+.panel__title { color: rgba(255, 245, 230, 0.5); }
+
+/* ── 로비/네비게이션 추가 ── */
+.lobby__navBtn { color: rgba(255, 245, 230, 0.5); }
+.lobby__navBtn:hover:not(.lobby__navBtn--active) { color: rgba(255, 245, 230, 0.65); }
+.lobby__placeholderText { color: rgba(255, 245, 230, 0.18); }
+.lobby__placeholderSub { color: rgba(255, 245, 230, 0.12); }
+.myinfo__tab { color: rgba(255, 245, 230, 0.5); }
+.decoSlots__hint { color: rgba(255, 245, 230, 0.5); }
+
+/* ── 펫 관련 ── */
+.petMeta { color: rgba(255, 245, 230, 0.8); }
+.petDrawResult { color: rgba(255, 245, 230, 0.65); }
+.petItem__line { color: rgba(255, 245, 230, 0.6); }
+.petItem__equip { color: rgba(255, 245, 230, 0.88); }
+.petDrawDetail__summary { color: rgba(255, 245, 230, 0.8); }
+.petDrawDetail__idx { color: rgba(255, 245, 230, 0.5); }
+.petDrawDetail__meta { color: rgba(255, 245, 230, 0.6); }
+.petGrid__empty { color: rgba(255, 245, 230, 0.18); }
+.petGridItem__imgPlaceholder { color: rgba(255, 245, 230, 0.15); }
+
+/* 펫 액티브 팝업 */
+.petActivePopup__cd { color: rgba(255, 245, 230, 0.4); }
+.petActivePopup__desc { color: rgba(255, 245, 230, 0.75); }
+.petActivePopup__btn--use:disabled { color: rgba(255, 245, 230, 0.18); }
+.petActivePopup__passiveTitle { color: rgba(255, 245, 230, 0.5); }
+.petActivePopup__passiveSlot { color: rgba(255, 245, 230, 0.45); }
+.petActivePopup__passiveRow--on { color: rgba(255, 245, 230, 0.85); }
+.petActivePopup__passiveRow--off { color: rgba(255, 245, 230, 0.18); }
+
+/* ── 장식(데코) 추가 ── */
+.decoSlot__iconPlaceholder { color: rgba(255, 245, 230, 0.12); }
+.decoGrid__empty { color: rgba(255, 245, 230, 0.18); }
+.decoGridItem__iconPlaceholder { color: rgba(255, 245, 230, 0.12); }
+.decoGridItem__gaugeLabel { color: rgba(255, 245, 230, 0.85); }
+.decoGridItem--fragment .decoGridItem__gaugeLabel { color: rgba(255, 245, 230, 0.5); }
+.decoDetail__iconPlaceholder { color: rgba(255, 245, 230, 0.12); }
+
+/* ── 장비(Equip) ── */
+.equipInnerTabs__btn { color: rgba(255, 245, 230, 0.5); }
+.equipSlots__title { color: rgba(255, 245, 230, 0.5); }
+.equipSlot__empty { color: rgba(255, 245, 230, 0.18); }
+.equipSlot__name { color: rgba(255, 245, 230, 0.55); }
+.equipGrid__title { color: rgba(255, 245, 230, 0.5); }
+.equipGrid__countBadge { color: rgba(255, 245, 230, 0.65); }
+.equipGrid__name { color: rgba(255, 245, 230, 0.85); }
+.equipGrid__empty { color: rgba(255, 245, 230, 0.3); }
+.equipGrid__iconPlaceholder { color: rgba(255, 245, 230, 0.18); }
+.equipDetail__iconPlaceholder { color: rgba(255, 245, 230, 0.18); }
+.equipDetail__name { color: rgba(255, 245, 230, 0.92); }
+.equipDetail__sub { color: rgba(255, 245, 230, 0.5); }
+.equipDetail__mergeTitle { color: rgba(255, 245, 230, 0.55); }
+.equipMerge__title { color: rgba(255, 245, 230, 0.75); }
+.equipMerge__iconPlaceholder { color: rgba(255, 245, 230, 0.18); }
+.equipMerge__name { color: rgba(255, 245, 230, 0.88); }
+
+/* ── 도감(codex) 탭 ── */
+.codex__tab { color: rgba(255, 245, 230, 0.85); }
+.log { color: rgba(255, 245, 230, 0.7); }
+
+/* ── 기타 텍스트 ── */
+.menuCard__title { color: rgba(255, 245, 230, 0.8); }
+.petActivePopup__cd { color: rgba(255, 245, 230, 0.4); }
+
+/* ── border/background 보정 (가독성에 영향을 주는 것들) ── */
+.statusChip {
+  border-color: rgba(255, 245, 230, 0.12);
+  background: rgba(255, 245, 230, 0.06);
+}
+.runInfo__skillItem {
+  background: rgba(255, 245, 230, 0.05);
+  border-color: rgba(255, 245, 230, 0.08);
+}
+.petItem {
+  border-color: rgba(255, 245, 230, 0.1);
+  background: rgba(255, 245, 230, 0.06);
+}
+.petItem__equip {
+  border-color: rgba(255, 245, 230, 0.15);
+}
+.helpSteps {
+  border-color: rgba(255, 245, 230, 0.1);
+  background: rgba(255, 245, 230, 0.04);
+}
+.fxToast {
+  background: rgba(30, 26, 22, 0.95);
+  border-color: rgba(255, 245, 230, 0.12);
+}
+
+/* ── 배틀 로그 border 보정 ── */
+.codex__tab {
+  border-color: rgba(255, 245, 230, 0.1);
+  background: rgba(255, 245, 230, 0.04);
+}
+.codex__tab--active {
+  border-color: rgba(255, 245, 230, 0.25);
+  background: rgba(255, 245, 230, 0.1);
+}
+
+/* ── @keyframes 오버라이드 ── */
+@keyframes sbComboBump {
+  0% { transform: scale(1); color: rgba(255, 245, 230, 0.8); }
+  40% { transform: scale(1.15); }
+  100% { transform: scale(1); color: rgba(255, 245, 230, 0.8); }
+}
+
+/* ── 언어 선택 버튼 ── */
+.startScreen__langRow {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin: 10px 0 6px;
+}
+.langBtn {
+  border: 1px solid rgba(255, 245, 230, 0.18);
+  background: rgba(255, 245, 230, 0.06);
+  color: rgba(255, 245, 230, 0.8);
+  font-size: 14px;
+  min-width: 80px;
+}
+.langBtn--active {
+  border-color: rgba(242, 177, 60, 0.55);
+  box-shadow: 0 0 0 1px rgba(242, 177, 60, 0.12);
+  color: rgba(255, 245, 230, 0.95);
+}
+
+/* ══════════════════════════════════════
+   v3 전투 이펙트 — 투사체/충격/팝업
+   ══════════════════════════════════════ */
+
+/* ── 투사체 (Projectile) ── */
+.projectile {
+  position: absolute;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 50;
+  animation: projectileFly 300ms cubic-bezier(0.2, 0, 0.3, 1) forwards;
+}
+@keyframes projectileFly {
+  0%   { transform: translate(-50%, -50%) scale(0.5); opacity: 0.7; }
+  20%  { transform: translate(calc(-50% + var(--dx)*0.15), calc(-50% + var(--dy)*0.15 - 8px)) scale(1.1); opacity: 1; }
+  100% { transform: translate(calc(-50% + var(--dx)), calc(-50% + var(--dy))) scale(0.7); opacity: 0.9; }
+}
+.projectile--fire   { background: radial-gradient(circle, #fff 20%, #ff5a3d 60%, transparent); box-shadow: 0 0 12px #ff5a3d; }
+.projectile--light  { background: radial-gradient(circle, #fff 20%, #ffe033 60%, transparent); box-shadow: 0 0 12px #ffe033; }
+.projectile--nature { background: radial-gradient(circle, #fff 20%, #69d2a5 60%, transparent); box-shadow: 0 0 12px #69d2a5; }
+.projectile--water  { background: radial-gradient(circle, #fff 20%, #43b4ff 60%, transparent); box-shadow: 0 0 12px #43b4ff; }
+
+/* ── 충격 파티클 (Impact) ── */
+.impact-particle {
+  position: absolute;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 51;
+  animation: impactBurst 400ms ease-out forwards;
+}
+@keyframes impactBurst {
+  0%   { transform: translate(-50%, -50%) scale(1); opacity: 1; }
+  100% { transform: translate(calc(-50% + var(--px)), calc(-50% + var(--py))) scale(0); opacity: 0; }
+}
+
+/* ── 속성별 데미지 팝업 ── */
+.dmg-popup {
+  position: absolute;
+  top: 10%;
+  font-family: var(--font-num);
+  font-weight: 900;
+  font-size: 1.2em;
+  pointer-events: none;
+  z-index: 52;
+  animation: dmgPopFloat 800ms ease-out forwards;
+  text-shadow: 0 2px 6px rgba(0,0,0,0.6);
+  white-space: nowrap;
+}
+@keyframes dmgPopFloat {
+  0%   { transform: translateY(0) scale(1.3); opacity: 1; }
+  60%  { opacity: 1; }
+  100% { transform: translateY(-32px) scale(0.9); opacity: 0; }
+}
+.dmg-popup--enemy { color: #ff5252; }
+.dmg-popup--player { color: #ff8c42; }
+.dmg-popup--fire   { color: #ff5a3d !important; text-shadow: 0 0 8px rgba(255,90,61,0.5) !important; }
+.dmg-popup--light  { color: #ffe033 !important; text-shadow: 0 0 8px rgba(255,224,51,0.5) !important; }
+.dmg-popup--nature { color: #69d2a5 !important; text-shadow: 0 0 8px rgba(105,210,165,0.5) !important; }
+.dmg-popup--water  { color: #43b4ff !important; text-shadow: 0 0 8px rgba(67,180,255,0.5) !important; }
+
+/* ── 해머 스트라이크 ── */
+.strike-hammer {
+  position: absolute;
+  width: 24px;
+  height: 32px;
+  z-index: 53;
+  pointer-events: none;
+  background: radial-gradient(circle at 50% 30%, #ffe033, #ff8c42 70%);
+  border-radius: 4px 4px 2px 2px;
+  box-shadow: 0 0 12px rgba(255,224,51,0.6);
+  animation: hammerStrike 400ms cubic-bezier(0.6, 0, 0.2, 1) forwards;
+}
+@keyframes hammerStrike {
+  0%   { transform: translate(-50%, 0) scale(1.2); opacity: 0.7; }
+  50%  { transform: translate(-50%, var(--target-y)) scale(1); opacity: 1; }
+  60%  { transform: translate(-50%, var(--target-y)) scale(1.3, 0.7); opacity: 1; }
+  100% { transform: translate(-50%, var(--target-y)) scale(0.5); opacity: 0; }
+}
+
+/* ── 화상 DoT 오버레이 ── */
+.burn-overlay {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at center, rgba(255,90,61,0.25) 0%, transparent 70%);
+  border-radius: inherit;
+  pointer-events: none;
+  z-index: 10;
+  animation: burnPulse 600ms ease-out forwards;
+}
+@keyframes burnPulse {
+  0%   { opacity: 0; }
+  30%  { opacity: 1; }
+  100% { opacity: 0; }
+}
+.burn-spark {
+  position: absolute;
+  bottom: 10%;
+  width: 4px;
+  height: 4px;
+  background: #ff5a3d;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 11;
+  animation: sparkRise 600ms ease-out forwards;
+}
+@keyframes sparkRise {
+  0%   { transform: translateY(0) scale(1); opacity: 1; }
+  100% { transform: translateY(-30px) scale(0); opacity: 0; }
+}
+
+/* ══════════════════════════════════════
+   v3 어지러움 빗나감 + MISS + 따가움 칩
+   ══════════════════════════════════════ */
+
+/* 어지러움 빗나감 — 적이 엉뚱한 방향으로 돌진 */
+.m-char--enemy.enemy-dizzy-miss {
+  animation: enemyDizzyMiss 500ms ease-out !important;
+}
+@keyframes enemyDizzyMiss {
+  0%   { transform: translateX(0); }
+  25%  { transform: translateX(-30px) rotate(-8deg); }
+  50%  { transform: translateX(-20px) rotate(4deg); }
+  100% { transform: translateX(0) rotate(0); }
+}
+
+/* MISS 팝업 */
+.dmg-popup--miss {
+  color: rgba(200, 200, 200, 0.85) !important;
+  font-style: italic;
+  font-size: 1.1em;
+  text-shadow: 0 1px 3px rgba(0,0,0,0.5) !important;
+}
+
+/* 따가움 칩 색상 */
+.statusChip--thorn {
+  border-color: rgba(105, 210, 165, 0.35);
+}
+
+/* ── 상태 미니아이콘 ── */
+.statusMini {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 6px;
+  border: 1.5px solid rgba(255,255,255,0.15);
+  background: rgba(0,0,0,0.35);
+  flex-shrink: 0;
+}
+
+.statusMini__icon {
+  width: 18px;
+  height: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+}
+.statusMini__icon svg {
+  width: 18px;
+  height: 18px;
+}
+
+/* 숫자 뱃지 */
+.statusMini__badge {
+  position: absolute;
+  bottom: -3px;
+  right: -3px;
+  min-width: 14px;
+  height: 14px;
+  border-radius: 7px;
+  background: rgba(40,30,20,0.85);
+  border: 1px solid rgba(255,255,255,0.25);
+  color: #fff;
+  font-size: 9px;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 2px;
+  line-height: 1;
+}
+
+/* kind별 색상 */
+.statusMini--burn { border-color: rgba(255,90,61,0.6); background: rgba(255,90,61,0.2); }
+.statusMini--burn .statusMini__icon { color: rgba(255,120,80,0.95); }
+.statusMini--burn .statusMini__badge { background: rgba(255,70,40,0.9); }
+
+.statusMini--bleed { border-color: rgba(255,115,128,0.6); background: rgba(255,115,128,0.2); }
+.statusMini--bleed .statusMini__icon { color: rgba(255,140,150,0.95); }
+.statusMini--bleed .statusMini__badge { background: rgba(255,100,115,0.9); }
+
+.statusMini--freeze { border-color: rgba(67,180,255,0.6); background: rgba(67,180,255,0.2); }
+.statusMini--freeze .statusMini__icon { color: rgba(100,200,255,0.95); }
+.statusMini--freeze .statusMini__badge { background: rgba(50,160,255,0.9); }
+
+.statusMini--hypotherm { border-color: rgba(130,200,240,0.5); background: rgba(130,200,240,0.15); }
+.statusMini--hypotherm .statusMini__icon { color: rgba(160,220,255,0.95); }
+.statusMini--hypotherm .statusMini__badge { background: rgba(100,180,230,0.9); }
+
+.statusMini--stun { border-color: rgba(255,220,80,0.6); background: rgba(255,220,80,0.2); }
+.statusMini--stun .statusMini__icon { color: rgba(255,230,100,0.95); }
+.statusMini--stun .statusMini__badge { background: rgba(230,190,40,0.9); }
+
+.statusMini--shield { border-color: rgba(242,177,60,0.6); background: rgba(242,177,60,0.2); }
+.statusMini--shield .statusMini__icon { color: rgba(255,200,80,0.95); }
+.statusMini--shield .statusMini__badge { background: rgba(220,160,40,0.9); }
+
+.statusMini--weaken { border-color: rgba(180,160,140,0.5); background: rgba(180,160,140,0.15); }
+.statusMini--weaken .statusMini__icon { color: rgba(200,180,160,0.95); }
+.statusMini--weaken .statusMini__badge { background: rgba(160,140,120,0.9); }
+
+.statusMini--thorn { border-color: rgba(105,210,165,0.6); background: rgba(105,210,165,0.2); }
+.statusMini--thorn .statusMini__icon { font-size: 14px; }
+.statusMini--thorn .statusMini__badge { background: rgba(80,190,140,0.9); }
+
+.statusMini--lockH, .statusMini--lockV { border-color: rgba(200,160,100,0.6); background: rgba(200,160,100,0.2); }
+.statusMini--lockH .statusMini__icon, .statusMini--lockV .statusMini__icon { color: rgba(220,180,120,0.95); }
+.statusMini--lockH .statusMini__badge, .statusMini--lockV .statusMini__badge { background: rgba(180,140,80,0.9); }
+
+.statusMini--seal, .statusMini--tileSeal { border-color: rgba(180,100,200,0.6); background: rgba(180,100,200,0.2); }
+.statusMini--seal .statusMini__icon, .statusMini--tileSeal .statusMini__icon { color: rgba(200,130,220,0.95); }
+.statusMini--seal .statusMini__badge, .statusMini--tileSeal .statusMini__badge { background: rgba(160,80,180,0.9); }
+
+/* 컨테이너 오버라이드: 적 상태행 */
+.m-char__status {
+  gap: 3px !important;
+  min-height: 28px !important;
+}
+
+/* ══════════════════════════════════════
+   적 아이콘 상태이상 VFX
+   ══════════════════════════════════════ */
+
+/* 🔥 화상 — 하단 불꽃 글로우 + 맥동 */
+.enemy-fx-burn .m-char__img {
+  border-color: rgba(255, 80, 30, 0.8) !important;
+  box-shadow:
+    0 6px 18px -2px rgba(255, 70, 20, 0.6),
+    0 10px 30px -4px rgba(255, 120, 40, 0.3),
+    0 0 14px rgba(255, 80, 30, 0.4),
+    0 3px 10px rgba(0, 0, 0, 0.5) !important;
+  animation: burnPulse 0.8s ease-in-out infinite alternate, enemyBreath 1.55s ease-in-out infinite !important;
+}
+
+@keyframes burnPulse {
+  from {
+    box-shadow:
+      0 6px 18px -2px rgba(255, 70, 20, 0.5),
+      0 10px 30px -4px rgba(255, 120, 40, 0.25),
+      0 0 12px rgba(255, 80, 30, 0.35),
+      0 3px 10px rgba(0, 0, 0, 0.5);
+  }
+  to {
+    box-shadow:
+      0 8px 24px -2px rgba(255, 60, 10, 0.7),
+      0 14px 36px -4px rgba(255, 140, 40, 0.4),
+      0 0 20px rgba(255, 80, 30, 0.5),
+      0 3px 10px rgba(0, 0, 0, 0.5);
+  }
+}
+
+/* ❄️ 빙결 — 얼어붙은 효과 (탈색 + 정지 + 파란 글로우) */
+.enemy-fx-freeze .m-char__img {
+  border-color: rgba(100, 200, 255, 0.85) !important;
+  box-shadow:
+    0 0 16px rgba(80, 180, 255, 0.55),
+    0 0 32px rgba(100, 200, 255, 0.25),
+    0 3px 10px rgba(0, 0, 0, 0.5) !important;
+  filter: brightness(0.85) saturate(0.5) hue-rotate(15deg) !important;
+  animation: none !important; /* 얼어서 호흡 멈춤 */
+}
+
+/* 🌿 따가움 — 초록 글로우 맥동 */
+.enemy-fx-thorn .m-char__img {
+  border-color: rgba(80, 200, 130, 0.7) !important;
+  box-shadow:
+    0 0 12px rgba(80, 200, 130, 0.45),
+    0 0 24px rgba(100, 220, 150, 0.2),
+    0 3px 10px rgba(0, 0, 0, 0.5) !important;
+  animation: thornPulse 1.5s ease-in-out infinite alternate, enemyBreath 1.55s ease-in-out infinite !important;
+}
+
+@keyframes thornPulse {
+  from {
+    box-shadow:
+      0 0 10px rgba(80, 200, 130, 0.35),
+      0 0 20px rgba(100, 220, 150, 0.15),
+      0 3px 10px rgba(0, 0, 0, 0.5);
+  }
+  to {
+    box-shadow:
+      0 0 16px rgba(80, 200, 130, 0.55),
+      0 0 28px rgba(100, 220, 150, 0.3),
+      0 3px 10px rgba(0, 0, 0, 0.5);
+  }
+}
+
+/* 💫 어지러움 — 아이콘 흔들림 */
+.enemy-fx-dizzy .m-char__img {
+  border-color: rgba(255, 220, 80, 0.7) !important;
+  box-shadow:
+    0 0 10px rgba(255, 220, 80, 0.35),
+    0 3px 10px rgba(0, 0, 0, 0.5) !important;
+  animation: dizzyWobble 0.6s ease-in-out infinite !important;
+}
+
+@keyframes dizzyWobble {
+  0%   { transform: rotate(0deg); }
+  25%  { transform: rotate(2deg); }
+  50%  { transform: rotate(0deg); }
+  75%  { transform: rotate(-2deg); }
+  100% { transform: rotate(0deg); }
+}
+
+/* 🧊 저체온 — 약한 파란 글로우 */
+.enemy-fx-hypotherm .m-char__img {
+  border-color: rgba(130, 200, 240, 0.6) !important;
+  box-shadow:
+    0 0 10px rgba(130, 200, 240, 0.35),
+    0 0 20px rgba(150, 210, 245, 0.15),
+    0 3px 10px rgba(0, 0, 0, 0.5) !important;
+}
+
+/* ── 복합 상태 우선순위 (빙결 > 화상 > 나머지) ── */
+.enemy-fx-freeze.enemy-fx-burn .m-char__img {
+  filter: brightness(0.85) saturate(0.5) hue-rotate(15deg) !important;
+  animation: none !important;
+}
+.enemy-fx-freeze.enemy-fx-dizzy .m-char__img {
+  animation: none !important;
+}
+
+/* ═══ 플레이어 디버프 — 그리드 타일 오버레이 ═══ */
+
+/* 🔥 불탄 타일 */
+.cell--burnt {
+  border-color: rgba(255, 80, 30, 0.6) !important;
+}
+.cellOverlay {
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+}
+.cellOverlay--burn {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  animation: burnCellFlicker 0.9s ease-in-out infinite alternate;
+}
+@keyframes burnCellFlicker {
+  from { opacity: 0.7; }
+  to { opacity: 1.0; }
+}
+
+/* ❄️ 얼린 타일 */
+.cell--frozen {
+  border-color: rgba(100, 200, 255, 0.8) !important;
+  box-shadow: inset 0 0 8px rgba(100, 200, 255, 0.4);
+}
+.cell--frozen .sigil__img {
+  filter: brightness(0.6) saturate(0.3) sepia(0.3) hue-rotate(180deg);
+}
+.cellOverlay--freeze {
+  width: 130%;
+  height: 130%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  object-fit: contain;
+  opacity: 0.88;
+  animation: frozenShimmer 2s ease-in-out infinite alternate;
+  z-index: 2;
+  filter: drop-shadow(0 0 4px rgba(140, 220, 255, 0.6));
+}
+@keyframes frozenShimmer {
+  from { opacity: 0.82; filter: drop-shadow(0 0 4px rgba(140, 220, 255, 0.6)) brightness(0.95); }
+  to   { opacity: 0.95; filter: drop-shadow(0 0 8px rgba(180, 240, 255, 0.8)) brightness(1.1); }
+}
+
+/* 💫 기절 "펑" 이펙트 */
+.stunBurst {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 48px;
+  font-weight: 900;
+  color: rgba(255, 220, 80, 0.95);
+  text-shadow: 0 0 20px rgba(255, 180, 40, 0.8);
+  z-index: 10;
+  animation: stunPop 600ms ease-out forwards;
+  pointer-events: none;
+}
+@keyframes stunPop {
+  0% { transform: scale(0.3); opacity: 0; }
+  40% { transform: scale(1.3); opacity: 1; }
+  100% { transform: scale(1); opacity: 0; }
+}
+
+/* 스핀 버튼 디버프 이펙트 */
+.spinBtn--burn {
+  box-shadow: 0 0 12px rgba(255, 80, 30, 0.4) !important;
+}
+.spinBtn--freeze {
+  box-shadow: 0 0 12px rgba(100, 200, 255, 0.4) !important;
+}
+.spinBtn--stun {
+  animation: spinBtnWobble 0.5s ease-in-out infinite !important;
+}
+@keyframes spinBtnWobble {
+  0%, 100% { transform: rotate(0); }
+  25% { transform: rotate(1.5deg); }
+  75% { transform: rotate(-1.5deg); }
+}
+
+/* ══════════════════════════════════════
+   v2 특수심볼 — 누락된 배경 보완
+   (light_bolt / light_thunder_sym /
+    nature_thorn_v / water_ice / water_protect)
+   ══════════════════════════════════════ */
+
+/* 번개 볼트 — 라이트 계열 */
+.sigil--light_bolt {
+  background:
+    radial-gradient(14px 14px at 30% 30%, rgba(255,255,255,0.34), transparent 60%),
+    repeating-linear-gradient(135deg, rgba(255,216,74,0.95) 0 8px, rgba(255,255,255,0.18) 8px 14px);
+  color: rgba(10,14,20,0.88);
+}
+
+/* 천둥 심볼 — 라이트 계열 */
+.sigil--light_thunder_sym {
+  background:
+    radial-gradient(14px 14px at 30% 30%, rgba(255,255,255,0.34), transparent 60%),
+    linear-gradient(145deg, rgba(255,216,74,0.95), rgba(168,120,17,0.95));
+  color: rgba(10,14,20,0.88);
+}
+
+/* 가시 v — 자연 계열 */
+.sigil--nature_thorn_v {
+  background:
+    radial-gradient(14px 14px at 30% 30%, rgba(255,255,255,0.34), transparent 60%),
+    repeating-linear-gradient(45deg, rgba(89,227,140,0.95) 0 8px, rgba(20,124,64,0.95) 8px 16px);
+  color: rgba(60,42,28,0.92);
+}
+
+/* 얼음 — 물 계열 */
+.sigil--water_ice {
+  background:
+    radial-gradient(14px 14px at 30% 30%, rgba(255,255,255,0.34), transparent 60%),
+    repeating-linear-gradient(135deg, rgba(67,180,255,0.95) 0 10px, rgba(255,255,255,0.18) 10px 16px);
+  color: rgba(60,42,28,0.92);
+}
+
+/* 보호 — 물 계열 */
+.sigil--water_protect {
+  background:
+    radial-gradient(14px 14px at 30% 30%, rgba(255,255,255,0.30), transparent 60%),
+    repeating-linear-gradient(135deg, rgba(60,42,28,0.12) 0 8px, rgba(255,255,255,0.00) 8px 16px),
+    linear-gradient(145deg, rgba(67,180,255,0.95), rgba(24,92,167,0.95));
+  color: rgba(60,42,28,0.92);
+}
+
+/* ══════════════════════════════════════
+   낙뢰 타격 연출 — 번개 낙하 이펙트
+   ══════════════════════════════════════ */
+
+.lightning-bolt-svg {
+  position: absolute;
+  pointer-events: none;
+  z-index: 60;
+  overflow: visible;
+  animation: lightningReveal 420ms ease-out forwards;
+}
+
+@keyframes lightningReveal {
+  0%   { clip-path: inset(0 0 100% 0); opacity: 1; }
+  45%  { clip-path: inset(0 0 0% 0);   opacity: 1; }
+  70%  { clip-path: inset(0 0 0% 0);   opacity: 0.7; }
+  100% { clip-path: inset(0 0 0% 0);   opacity: 0; }
+}
+
+.lightning-flash {
+  position: absolute;
+  inset: 0;
+  background: rgba(255, 230, 50, 0.22);
+  pointer-events: none;
+  z-index: 59;
+  border-radius: inherit;
+  animation: lightningFlash 280ms ease-out forwards;
+}
+
+@keyframes lightningFlash {
+  0%   { opacity: 1; }
+  100% { opacity: 0; }
+}
+
+/* ══════════════════════════════════════
+   스킬 아이콘 HUD — 전투 좌상단
+   ══════════════════════════════════════ */
+
+#journey { position: relative; }
+
+.skill-icon-hud {
+  position: absolute;
+  top: 6px;
+  left: 6px;
+  display: grid;
+  grid-template-columns: repeat(7, 28px);
+  gap: 3px;
+  z-index: 8;
+  pointer-events: none;
+}
+
+.skill-hud-icon {
+  position: relative;
+  width: 28px;
+  height: 28px;
+  border-radius: 5px;
+  flex-shrink: 0;
+  background: rgba(20, 14, 8, 0.75);
+  border: 1.5px solid rgba(255, 245, 230, 0.2);
+  overflow: hidden;
+}
+
+/* 등급별 배경 색상 */
+.skill-hud-icon--B  { background: rgba(100, 170, 230, 0.28); border-color: rgba(120, 198, 255, 0.55); }
+.skill-hud-icon--A  { background: rgba(80,  200, 130, 0.28); border-color: rgba(123, 234, 160, 0.55); }
+.skill-hud-icon--S  { background: rgba(230, 170,  50, 0.32); border-color: rgba(255, 205,  87, 0.65); }
+.skill-hud-icon--SS { background: rgba(220,  80,  80, 0.32); border-color: rgba(255, 120, 120, 0.65); }
+
+.skill-hud-icon img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+}
+
+/* ══════════════════════════════════════
+   스킬 선택 모달 — 심볼 등장 확률 게이지 바
+   ══════════════════════════════════════ */
+
+.o-symbolOddsBar {
+  padding: 4px 4px 2px;
+}
+.o-symbolOddsBar[aria-hidden="true"] {
+  display: none;
+}
+
+.o-odds-track {
+  display: flex;
+  height: 28px;
+  border-radius: 6px;
+  overflow: hidden;
+  gap: 2px;
+  background: rgba(0, 0, 0, 0.3);
+}
+
+.o-odds-seg {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  overflow: hidden;
+  white-space: nowrap;
+  min-width: 28px;
+  transition: flex 0.35s ease;
+}
+
+.o-odds-emoji {
+  font-size: 13px;
+  line-height: 1;
+  flex-shrink: 0;
+}
+
+.o-odds-pct {
+  font-size: 11px;
+  font-weight: 800;
+  color: rgba(255, 255, 255, 0.92);
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.7);
+  letter-spacing: 0.02em;
+}
+
+/* ══════════════════════════════════════
+   패턴 발동 강화 연출 (override.js 섹션 8)
+   ══════════════════════════════════════ */
+
+/* 개별 셀 버스트 */
+.o-patternCellBurst {
+  position: absolute;
+  inset: -3px;
+  border-radius: 4px;
+  pointer-events: none;
+  z-index: 15;
+  background: radial-gradient(circle, var(--burst-col, #f7d040) 10%, transparent 68%);
+  animation: o-patternCellBurst 0.55s ease-out forwards;
+}
+@keyframes o-patternCellBurst {
+  0%   { transform: scale(0.3); opacity: 0; }
+  20%  { opacity: 0.85; }
+  45%  { transform: scale(1.9); opacity: 0.65; }
+  100% { transform: scale(2.6); opacity: 0; }
+}
+
+/* 그리드 전체 플래시 */
+.o-patternGridFlash {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 22;
+  border-radius: 8px;
+  animation: o-patternGridFlash 0.48s ease-out forwards;
+}
+@keyframes o-patternGridFlash {
+  0%   { opacity: 0; }
+  10%  { opacity: 1; }
+  100% { opacity: 0; }
+}
+
+/* 그리드 셰이크 */
+.o-patternShake {
+  animation: o-patternShake 0.40s ease-in-out;
+}
+@keyframes o-patternShake {
+  0%   { transform: translate(0, 0); }
+  18%  { transform: translate(-4px, -2px); }
+  36%  { transform: translate(4px,  2px); }
+  54%  { transform: translate(-3px,  1px); }
+  72%  { transform: translate( 3px, -1px); }
+  88%  { transform: translate(-1px,  0px); }
+  100% { transform: translate(0, 0); }
+}
